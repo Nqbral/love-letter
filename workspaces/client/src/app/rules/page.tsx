@@ -1,441 +1,485 @@
-import LinkButton, { TypeLinkButton } from '@components/buttons/LinkButton';
 import Navbar from '@components/navbar/Navbar';
-import BombImg from '@public/bomb.png';
-import DoctorImg from '@public/doctor.png';
-import DoctorMinImg from '@public/doctor_min.png';
-import InfectedImg from '@public/infected.png';
-import InfectedMinImg from '@public/infected_min.png';
-import NeutralImg from '@public/neutral.png';
-import RemedyImg from '@public/remedy.png';
-import UserMinImg from '@public/user_min.png';
-import LoadingAuth from 'app/layout/LoadingAuth';
-import Image from 'next/image';
+import { faCoins, faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function RulesPage() {
+import BaronImg from '../../../public/baron_without_value.png';
+import ChancellorImg from '../../../public/chancellor_without_value.png';
+import CountessImg from '../../../public/countess_without_value.png';
+import GuardImg from '../../../public/guard_without_value.png';
+import HandmaidImg from '../../../public/handmaid_without_value.png';
+import KingImg from '../../../public/king_without_value.png';
+import PriestImg from '../../../public/priest_without_value.png';
+import PrinceImg from '../../../public/prince_without_value.png';
+import PrincessImg from '../../../public/princess_without_value.png';
+import SpyImg from '../../../public/spy_without_value.png';
+import LinkButton, { TypeLinkButton } from '../components/buttons/LinkButton';
+import CardDescription from '../components/rules/CardDescription';
+
+export default function Rules() {
   return (
-    <LoadingAuth>
+    <>
       <Navbar />
-      <div className="flex min-h-screen flex-col items-center gap-12 px-4 pt-24 pb-8 text-center">
+      <div className="flex w-full flex-col items-center gap-12 px-4 pt-24 pb-8">
         <h1 className="text-primary text-4xl">Règles</h1>
         <div className="container flex flex-col items-center gap-8">
-          <div className="flex flex-col items-center gap-6">
-            <h2 className="text-xl underline underline-offset-4">But du jeu</h2>
-            <p>
-              Le monde est ravagé par un virus incurable. Dans un laboratoire
-              isolé, les derniers{' '}
-              <span className="text-emerald-400">Docteurs</span> tentent de
-              découvrir des Remèdes pour sauver l’humanité. Mais parmi eux se
-              cachent des <span className="text-red-400">Infectés</span>, qui
-              veulent faire exploser le laboratoire pour répandre définitivement
-              la contagion.
-            </p>
-            <p>
-              En début de partie, découvrez secrètement à quelle équipe vous
-              appartenez et tentez d’identifier vos alliés : L’équipe des{' '}
-              <span className="text-emerald-400">Docteurs</span> gagne si tous
-              les <span className="text-blue-400">Remèdes</span> sont
-              découverts. L’équipe des{' '}
-              <span className="text-red-400">Infectés</span> gagne si la carte{' '}
-              <span className="text-amber-600">Explosion</span> est révélée, ou
-              si aucun Remède n&apos;est trouvé au bout des 4 manches.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center gap-6">
-            <h2 className="text-xl underline underline-offset-4">Rôles</h2>
-            <p>Les cartes de jeu représentent les différentes</p>
-            <div className="flex flex-col items-center gap-2 rounded-md border-1 border-neutral-700 p-4 md:flex-row">
-              <Image src={DoctorImg} alt="doctor" className="w-32" />
-              <p className="md:w-xl">
-                Les membres de l’équipe{' '}
-                <span className="text-emerald-400">Docteurs</span> sont
-                représentés par les cartes Rôle avec un fond vert. L’objectif de
-                ces membres est de trouver les différents remèdes avant que les
-                Infectés fassent exploser le laboratoire.
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-2 rounded-md border-1 border-neutral-700 p-4 md:flex-row">
-              <Image src={InfectedImg} alt="infected" className="w-32" />
-              <p className="md:w-xl">
-                Les membres de l’équipe{' '}
-                <span className="text-red-400">Infectés</span> sont représentés
-                par les cartes Rôle avec un fond rouge. L’objectif de ces
-                membres est de faire exploser la{' '}
-                <span className="text-amber-600">Bombe</span> pour détruire le
-                laboratoire.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
-              Cartes Échantillons
+              Présentation
             </h2>
-            <p>
-              Les cartes Échantillons représentent les prélèvements que les
-              joueurs analysent dans l’espoir de découvrir un Remède… ou de
-              déclencher l’explosion du laboratoire. Elles se divisent en trois
-              types distincts.
+            <p className="text-center">
+              Dans <span className="font-bold">Love Letter</span> 2 à 6
+              soupirants s&apos;affrontent pour que leurs lettres soient remises
+              à la Princesse du royaume, qui cherche le partenaire et le
+              confident idéal, en prévision du jour où elle montera sur le
+              trône.
             </p>
-            <div className="flex flex-col items-center gap-2 rounded-md border-1 border-neutral-700 p-4 md:flex-row">
-              <Image src={NeutralImg} alt="neutral" className="w-32" />
-              <p className="md:w-xl">
-                Examiner une{' '}
-                <span className="text-neutral-400">Substance Neutre</span> n’a
-                aucun effet.
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-2 rounded-md border-1 border-neutral-700 p-4 md:flex-row">
-              <Image src={RemedyImg} alt="remedy" className="w-32" />
-              <p className="md:w-xl">
-                Analyser un <span className="text-blue-400">Remède</span> vous
-                rapproche de la victoire si vous faites partie de l’équipe des{' '}
-                <span className="text-emerald-400">Docteurs</span>. Si tous les
-                Remèdes en jeu sont découverts, l’humanité est sauvée.
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-2 rounded-md border-1 border-neutral-700 p-4 md:flex-row">
-              <Image src={BombImg} alt="bomb" className="w-32" />
-              <p className="md:w-xl">
-                Déclencher la carte{' '}
-                <span className="text-amber-600">Explosion</span> provoquera la
-                destruction du laboratoire et offre la victoire à l’équipe des
-                <span className="text-red-400"> Infectés</span>.
-              </p>
-            </div>
           </div>
-
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
-              Mise en place
+              Mise en place du jeu
             </h2>
-            <p>
-              Au début de la partie, chaque joueur se voit automatiquement
-              attribuer un rôle secret :{' '}
-              <span className="text-emerald-400">Docteur</span> ou{' '}
-              <span className="text-red-400">Infecté</span>.
+            <p className="text-center">
+              Lors d&apos;une partie de{' '}
+              <span className="font-bold">Love Letter</span>, les 21 cartes
+              personnages sont mélangées au début de chaque manche et la
+              première carte du paquet est mise de côté face cachée.
             </p>
-            <p>
-              La répartition des rôles en fonction du nombre de joueurs est la
-              suivante :
+          </div>
+          <div className="flex flex-col items-center gap-3">
+            <h2 className="text-xl underline underline-offset-4">
+              Déroulement de la Partie
+            </h2>
+            <p className="text-center">
+              <span className="font-bold">Love Letter</span> se déroule selon
+              plusieurs manches durant lesquelles vous faites appel aux alliés,
+              amis et à la famille de la princesse afin qu&apos;ils lui
+              remettent une lettre d&apos;amour.
+              <br />
+              La carte que vous avez en main représente la personne qui
+              transporte actuellement votre missive, mais elle est susceptible
+              de changer à mesure que vous jouez et piochez des cartes pendant
+              la manche.
+              <br />
+              Pour remporter une manche, vous devez détenir la carte dont la
+              valeur est la plus élevée à la fin de cette manche ou être le
+              dernier joueur en lice.
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-3">
+            <h2 className="text-xl underline underline-offset-4">
+              Tour des Joueurs
+            </h2>
+            <p className="text-center">
+              Effectuez vos tours de jeu en sens horaire. À votre tour, piochez
+              1 carte du paquet. Choisissez et jouez ensuite l&apos;une de vos
+              deux cartes en résolvant son effet.
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-3">
+            <h2 className="text-xl underline underline-offset-4">
+              Quitter la Manche
+            </h2>
+            <p className="text-center">
+              Certains effets de cartes vous forcent à quitter la manche en
+              cours ; un soupirant adverse s&apos;est assuré que votre lettre
+              n&apos;arrive jamais à destination.
+              <br />
+              Lorsque cela se produit,{' '}
+              <span className="font-bold">
+                défaussez votre main face visible devant vous
+              </span>{' '}
+              (sans résoudre l&apos;effet de la carte qu&apos;elle contenait).
+              <br />
+              Jusqu&apos;au début de la prochaine manche,{' '}
+              <span className="font-bold">
+                {' '}
+                vous ne pouvez plus être ciblé par des effets de cartes et vous
+                passez votre tour
+              </span>
+              .
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-3">
+            <h2 className="text-xl underline underline-offset-4">
+              Cartes Jouées et Défaussées
+            </h2>
+            <p className="text-center">
+              Comparé à la version classique du jeu, les seules cartes{' '}
+              <span className="font-bold">face visible</span> sont :
+            </p>
+            <ul className="list-inside list-disc text-center">
+              <li>
+                la dernière carte défaussée ou jouée par l&apos;un des joueurs
+              </li>
+              <li>
+                les cartes dont les effets sont en cours (Espionne ou Servante)
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col items-center gap-3">
+            <h2 className="text-xl underline underline-offset-4">
+              Fin de la manche
+            </h2>
+            <p className="text-center">
+              La manche peut s&apos;achever de deux manières : soit quand{' '}
+              <span className="font-bold">le paquet est épuisé</span>, soit
+              quand lorsqu&apos;il ne reste plus qu&apos;
+              <span className="font-bold">un seul joueur en lice</span>.
+              <br />
+              <br />
+              Si le paquet se retrouve vide, tous les joueurs encore en lice
+              révèlent et comparent les carte de leur main{' '}
+              <span className="font-bold">après le tour du joueur actif</span>.
+              <br />
+              Si vous détenez la carte dont la valeur est la plus élevée, vous
+              remportez la manche et gagnez 1 pion Faveur ; votre lettre est
+              bien parvenue à la Princesse.
+              <br />
+              En cas d&apos;égalité, tous les joueurs concernés remportent la
+              manche et chacun d&apos;eux gagne 1 pion faveur.
+              <br />
+              <br />
+              Si vous êtes le seul joueur à participer encore à la manche en
+              cours (car tous les autres ont dû la quitter suite à des effets de
+              cartes), celle-ci s&apos;achève immédiatement ; vous la remporter
+              et gagnez 1 pion faveur.
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-3">
+            <h2 className="text-xl underline underline-offset-4">
+              Commencer la manche suivante
+            </h2>
+            <p className="text-center">
+              Pour débuter la manche suivante, toutes les cartes personnages
+              sont à nouveaux réunies, mélangées puis la première carte est
+              alors défaussée comme dans la première manche.
+              <br />
+              <span className="font-bold">
+                Le joueur qui a remporté la manche précédente
+              </span>{' '}
+              effectue alors son tour en premier. Si la manche précédente
+              s&apos;est soldée par une égalité, un joueur au hasard sera le
+              premier joueur parmi les concernés.
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-3">
+            <h2 className="text-xl underline underline-offset-4">
+              Remporter la partie
+            </h2>
+            <p className="text-center">
+              La partie s&apos;achève lorsqu&apos;un joueur détient suffisamment
+              de pions Faveur pour gagner (ce qui dépend du nombre de joueurs,
+              voir tableau ci-dessous). Il est possible que plusieurs joueurs
+              remportent simultanément la partie.
             </p>
             <table>
               <tbody>
                 <tr>
-                  <td className="min-w-12 border-2 border-slate-700 px-3 py-2">
-                    <Image
-                      src={UserMinImg}
-                      alt="players_min_img"
-                      className="w-12"
-                    />
+                  <td className="min-w-12 border-2 border-slate-700 px-3 py-2 text-center">
+                    <FontAwesomeIcon icon={faUser} color="#8d9eaa" />
                   </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
+                    2
+                  </td>
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
+                    3
+                  </td>
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
                     4
                   </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
                     5
                   </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
                     6
                   </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
-                    7
-                  </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
-                    8
-                  </td>
                 </tr>
                 <tr>
                   <td className="min-w-12 border-2 border-slate-700 px-3 py-2">
-                    <Image
-                      src={DoctorMinImg}
-                      alt="doctors_min_img"
-                      className="w-12"
+                    <FontAwesomeIcon
+                      icon={faCoins}
+                      color="oklch(92.4% 0.12 95.746)"
                     />
                   </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
-                    3
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
+                    6
                   </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
-                    3
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
+                    5
                   </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
                     4
                   </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
-                    5
-                  </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
-                    5
-                  </td>
-                </tr>
-                <tr>
-                  <td className="min-w-12 border-2 border-slate-700 px-3 py-2">
-                    <Image
-                      src={InfectedMinImg}
-                      alt="infected_min_img"
-                      className="w-12"
-                    />
-                  </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
-                    2
-                  </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
-                    2
-                  </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
-                    2
-                  </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
                     3
                   </td>
-                  <td className="border-2 border-slate-700 px-4 py-2 text-center">
+                  <td className="min-w-8 border-2 border-slate-700 py-2 text-center">
                     3
                   </td>
                 </tr>
               </tbody>
             </table>
-            <p className="italic">
-              *Remarque : Dans les parties à 4 et 7 joueurs, une des cartes Rôle
-              ne sera pas distribuée. Elle sera mise de côté après la
-              distribution des rôles. De cette façon, vous ne pouvez pas être
-              certain du nombre exact de membres de l’équipe{' '}
-              <span className="text-red-400">Infectés</span> et{' '}
-              <span className="text-emerald-400">Docteurs</span> dans la partie
-              en cours.
-            </p>
-            <br />
-            <p>
-              Chaque joueur reçoit également un ensemble de cartes contenant un
-              mélange de : <span className="text-blue-400">Remèdes</span>,{' '}
-              <span className="text-neutral-400">Substances Neutres</span> et{' '}
-              <span className="text-amber-600">Explosion</span>.
-            </p>
-            <p>
-              La répartition des cartes en fonction du nombre de joueurs est la
-              suivante :
-            </p>
-            <table>
-              <tbody>
-                <tr>
-                  <td className="min-w-12 border-2 border-slate-700 px-3 py-2">
-                    <Image
-                      src={UserMinImg}
-                      alt="players_min_img"
-                      className="w-12"
-                    />
-                  </td>
-                  <td className="min-w-12 border-2 border-slate-700 px-3 py-2">
-                    <Image
-                      src={NeutralImg}
-                      alt="neutral_img"
-                      className="w-12"
-                    />
-                  </td>
-                  <td className="min-w-12 border-2 border-slate-700 px-3 py-2">
-                    <Image src={RemedyImg} alt="remedy_img" className="w-12" />
-                  </td>
-                  <td className="min-w-12 border-2 border-slate-700 px-3 py-2">
-                    <Image src={BombImg} alt="bomb_img" className="w-12" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    4
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    15
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    4
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    1
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    5
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    19
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    5
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    1
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    6
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    23
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    6
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    1
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    7
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    27
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    7
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    1
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    8
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    31
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    8
-                  </td>
-                  <td className="border-2 border-slate-700 py-3 text-center">
-                    1
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <p>
-              Les rôles et les cartes sont distribués de manière aléatoire par
-              le système. Le joueur désigné pour commencer la partie est aussi
-              choisi automatiquement.
-            </p>
           </div>
-
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
-              Déroulement d&apos;une manche
+              Effet des cartes
             </h2>
-            <p>
-              La partie se joue en jusqu’à{' '}
-              <span className="font-bold">4 manches</span>. À chaque manche :
+            <p className="mb-6 text-center">
+              Chaque carte Personnage représente une personne importante dans la
+              vie de la Princesse. Chaque carte a son propre effet et la section
+              suivante fournit les règles complètes pour chaque personnage.
             </p>
-            <ul className="flex max-w-3xl list-decimal flex-col gap-3 px-8 text-left">
-              <li>
-                Les joueurs consultent leur main et indiquent si ils sont prêts
-                à jouer la manche.
-              </li>
-              <li>
-                Les joueurs discutent librement entre eux pour tenter d’orienter
-                les choix d’analyse.
-              </li>
-              <li>
-                <p>
-                  À tour de rôle, chaque joueur choisit une Carte chez un autre
-                  joueur à analyser.
-                </p>
-                <ul className="mt-2 ml-8 list-disc">
-                  <li>Il est interdit d’analyser ses propres cartes.</li>
-                  <li>
-                    L’analyse révèle immédiatement le contenu de la carte à tous
-                    les joueurs.
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <p>Une fois la carte révélée</p>
-                <ul className="mt-2 ml-8 list-disc">
-                  <li>
-                    Si c&apos;est une{' '}
-                    <span className="text-neutral-400">Substance Neutre</span> :
-                    rien ne se passe.
-                  </li>
-                  <li>
-                    Si c&apos;est un{' '}
-                    <span className="text-blue-400">Remède</span> : il est mis
-                    de côté.
+
+            <div className="flex flex-col items-center gap-8">
+              {/* Princesse */}
+              <CardDescription
+                nameCard="Princesse"
+                img={PrincessImg}
+                altimg="princess_img"
+                description={
+                  <p className="text-center">
+                    La princesse est la carte avec{' '}
+                    <span className="font-bold">
+                      la valeur la plus élevée du jeu
+                    </span>
+                    .
                     <br />
-                    Si tous les Remèdes sont trouvés, l&apos;équipe des{' '}
-                    <span className="text-emerald-400">Docteurs</span> gagne
-                    immédiatemment.
-                  </li>
-                  <li>
-                    Si c&apos;est la carte{' '}
-                    <span className="text-amber-600">Explosion</span> :
-                    l&apos;équipe des{' '}
-                    <span className="text-red-400">Infectés</span> gagne
-                    immédiatemment.
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Le joueur dont la carte vient d’être analysée devient le
-                prochain à choisir une Carte à analyser.
-              </li>
-              <li>
-                La manche se termine après un nombre d’analyses égal au nombre
-                de joueurs.
-              </li>
-              <li>
-                Le système collecte automatiquement les cartes non analysées.
-                <br />
-                Elle les remélange et les distribue à tous les joueurs.
-                <br />
-                Une nouvelle manche démarre avec une carte de moins pour chaque
-                joueur comparée à la manche précédente.
-              </li>
-            </ul>
-          </div>
-
-          <div className="flex flex-col items-center gap-6">
-            <h2 className="text-xl underline underline-offset-4">
-              Fin de partie
-            </h2>
-            <p>
-              La partie se termine immédiatement si l’une des trois conditions
-              suivantes est remplie :
-            </p>
-            <ul className="flex list-decimal flex-col gap-3 px-8 text-left">
-              <li>
-                Tous les <span className="text-blue-400">Remèdes</span> ont été
-                découverts.
-                <br />
-                Les membres de l&apos;équipe des{' '}
-                <span className="text-emerald-400">Docteurs</span> gagne
-                immédiatemment.
-              </li>
-              <li>
-                La carte <span className="text-amber-600">Explosion</span> a été
-                révélée.
-                <br />
-                Les membres de l&apos;équipe des{' '}
-                <span className="text-red-400">Infectés</span> gagne
-                immédiatemment.
-              </li>
-              <li>
-                À la fin des quatre manches, aucune des deux conditions
-                précédentes n’est atteinte.
-                <br />
-                Les membres de l&apos;équipe des{' '}
-                <span className="text-red-400">Infectés</span> remporte la
-                partie.
-              </li>
-            </ul>
+                    <br />
+                    Cependant, si vous jouez ou défaussez la Princesse{' '}
+                    <span className="font-bold">
+                      pour quelque raison que ce soit
+                    </span>
+                    , vous quittez immédiatement la manche.
+                  </p>
+                }
+                value={9}
+                nbCard={1}
+              />
+              {/* Comtesse */}
+              <CardDescription
+                nameCard="Comtesse"
+                img={CountessImg}
+                altimg="countess_img"
+                description={
+                  <p className="text-center">
+                    La Comtesse n&apos;a pas d&apos;effect actif
+                    lorsqu&apos;elle est jouée ou défaussée.
+                    <br />
+                    <br />
+                    Vous <span className="font-bold">devez</span> la jouer
+                    pendant votre tour si l&apos;autre carte de votre main est
+                    le <span className="font-bold">Roi</span> ou un{' '}
+                    <span className="font-bold">Prince</span>.
+                    <br />
+                    <br />
+                    Néanmoins, vous pouvez choisir de la jouer durant votre tour
+                    même si vous ne détenez ni le Roi, ni un Prince.
+                    <br />
+                    <br />
+                    Son effet ne s&apos;applique pas lorsque vous piochez des
+                    cartes suite à d&apos;autres effets (Chancelier).
+                  </p>
+                }
+                value={8}
+                nbCard={1}
+              />
+              {/* Roi */}
+              <CardDescription
+                nameCard="Roi"
+                img={KingImg}
+                altimg="king_img"
+                description={
+                  <p className="text-center">
+                    Choisissez un autre joueur et échangez votre main contre la
+                    sienne.
+                  </p>
+                }
+                value={7}
+                nbCard={1}
+              />
+              {/* Chancelier */}
+              <CardDescription
+                nameCard="Chancelier"
+                img={ChancellorImg}
+                altimg="chancellor_img"
+                description={
+                  <p className="text-center">
+                    Piochez 2 cartes du paquet et ajoutez-les à votre main.
+                    Choisissez et conservez{' '}
+                    <span className="font-bold">une</span> des trois cartes de
+                    votre main, puis placez les{' '}
+                    <span className="font-bold">deux</span> autres face cachée
+                    au-dessous du paquet (dans l&apos;ordre de votre choix).
+                    <br />
+                    <br />
+                    S&apos;il ne reste qu&apos;une seule carte dans le paquet,
+                    piochez-la et remettez-en une à sa place. Si le paquet est
+                    épuisé, le Chancelier n&apos;a pas d&apos;effet
+                    lorsqu&apos;il est joué.
+                  </p>
+                }
+                value={6}
+                nbCard={2}
+              />
+              {/* Prince */}
+              <CardDescription
+                nameCard="Prince"
+                img={PrinceImg}
+                altimg="prince_img"
+                description={
+                  <p className="text-center">
+                    Choisissez{' '}
+                    <span className="font-bold">
+                      n&apos;importe quel joueur
+                    </span>
+                    , y compris vous-même. Le joueur choisi défausse sa main
+                    face visible (sans résoudre l&apos;effet de la carte
+                    qu&apos;elle contenait) et en pioche une nouvelle.
+                    <br />
+                    <br />
+                    Si le paquet est épuisé, le joueur choisi pioche la carte
+                    face cachée mise de côté en début de la partie
+                    <br />
+                    <br />
+                    Si un joueur vous cible en résolvant l&apos;effet du Prince
+                    et que vous êtes contrait de défausser la Princesse, vous
+                    quittez la manche immédiatement sans piocher de nouvelle
+                    main.
+                  </p>
+                }
+                value={5}
+                nbCard={2}
+              />
+              {/* Prince */}
+              <CardDescription
+                nameCard="Servante"
+                img={HandmaidImg}
+                altimg="handmaid_img"
+                description={
+                  <div>
+                    <p className="text-center">
+                      Jusqu&apos;au début de{' '}
+                      <span className="font-bold">votre prochain tour</span>,
+                      les autres joueurs ne peuvent pas vous cibler
+                      lorsqu&apos;ils résolvent leurs effets de cartes.
+                      <br />
+                      <br />
+                      Dans le cas extrêmement rare où{' '}
+                      <span className="font-bold">
+                        tous les autres joueurs
+                      </span>{' '}
+                      encore en lice seraient &quot;protégés&quot; par une
+                      Servante au moment où vous jouez une carte, suivez ces
+                      consignes :
+                    </p>
+                    <br />
+                    <ul className="list-inside list-disc text-center">
+                      <li>
+                        Si cette carte nécessite que vous choisissez{' '}
+                        <span className="font-bold">un autre joueur</span>{' '}
+                        (Garde, Prêtre, Baron ou Roi), elle n&apos;a pas
+                        d&apos;effet.
+                      </li>
+                      <li>
+                        Si cette carte nécessite que vous choisissez{' '}
+                        <span className="font-bold">
+                          n&apos;importe quel joueur
+                        </span>{' '}
+                        (Prince), vous êtes contraint de vous cibler vous-même
+                        pour résoudre son effet.
+                      </li>
+                    </ul>
+                  </div>
+                }
+                value={4}
+                nbCard={2}
+              />
+              {/* Baron */}
+              <CardDescription
+                nameCard="Baron"
+                img={BaronImg}
+                altimg="baron_img"
+                description={
+                  <p className="text-center">
+                    Choisissez un autre joueur et comparer discrètement vos deux
+                    mains. Celui d&apos;entre vous qui détient la carte dont la
+                    valeur est la plus faible quitte immédiatement la manche.
+                    <br />
+                    <br />
+                    En cas d&apos;égalité, aucun de vous deux ne quitte la
+                    manche.
+                  </p>
+                }
+                value={3}
+                nbCard={2}
+              />
+              {/* Prêtre */}
+              <CardDescription
+                nameCard="Prêtre"
+                img={PriestImg}
+                altimg="priest_img"
+                description={
+                  <p className="text-center">
+                    Choisissez un autre joueur et regardez discrètement sa main
+                    (personne d&apos;autre que vous ne le voit).
+                  </p>
+                }
+                value={2}
+                nbCard={2}
+              />
+              {/* Garde */}
+              <CardDescription
+                nameCard="Garde"
+                img={GuardImg}
+                altimg="guard_img"
+                description={
+                  <p className="text-center">
+                    Choisissez un autre joueur et nommez un personnage autre que
+                    le Garde. Si le joueur choisi a cette carte en main, il
+                    quitte la manche.
+                  </p>
+                }
+                value={1}
+                nbCard={6}
+              />
+              {/* Espionne */}
+              <CardDescription
+                nameCard="Espionne"
+                img={SpyImg}
+                altimg="spy_img"
+                description={
+                  <p className="text-center">
+                    Une Espionne n&apos;a pas d&apos;effet actif
+                    lorsqu&apos;elle est jouée ou défaussée.
+                    <br />
+                    <br />À la fin de manche, si vous êtes{' '}
+                    <span className="font-bold">
+                      le seul joueur encore en lice
+                    </span>{' '}
+                    qui a joué ou défaussé une Espionne, vous gagnez 1 pion
+                    Faveur.
+                    <br />
+                    <br />
+                    Cela ne revient pas à remporter la manche ; le vainqueur
+                    (même si c&apos;est vous) gagne quand même son pion faveur.
+                    <br />
+                    <br />
+                    Vous ne gagnez toujours qu&apos;un seul pion, même si vous
+                    jouez et/ou défaussez les deux Espionnes.
+                  </p>
+                }
+                value={0}
+                nbCard={2}
+              />
+            </div>
           </div>
         </div>
-
         <LinkButton
           buttonText="Retour"
           linkTo="/"
           typeButton={TypeLinkButton.secondary}
         />
       </div>
-    </LoadingAuth>
+    </>
   );
 }
