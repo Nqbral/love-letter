@@ -2,10 +2,11 @@
 
 import { AuthProvider } from '@contexts/AuthContext';
 import { SocketProvider } from '@contexts/SocketContext';
-import { Orbitron } from 'next/font/google';
+import { MedievalSharp } from 'next/font/google';
 
-const orbitron = Orbitron({
+const medievalsharp = MedievalSharp({
   subsets: ['latin'],
+  weight: ['400'],
 });
 export default function App({
   children,
@@ -15,7 +16,7 @@ export default function App({
   return (
     <AuthProvider>
       <SocketProvider>
-        <html className={`${orbitron.className}`}>
+        <html className={`${medievalsharp.className}`}>
           <body>{children}</body>
         </html>
       </SocketProvider>
