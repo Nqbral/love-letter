@@ -2,6 +2,7 @@
 
 @theme {
   --color-text: oklch(96.7% 0.003 264.542);
+  --color-bg-navbar: #0f172c;
   --color-primary: oklch(87.9% 0.169 91.605);
   --color-primary-hover: oklch(76.9% 0.188 70.08);
   --color-secondary: oklch(50% 0.134 242.749);

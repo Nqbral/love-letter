@@ -1,7 +1,7 @@
 'use client';
 
 import { useAuth } from '@contexts/AuthContext';
-import LastHopeLogo from '@public/last-hope-logo-row.png';
+import LoveLetterLogo from '@public/love-letter-logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -28,10 +28,14 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed top-0 z-40 flex w-full flex-row items-center justify-between bg-neutral-900 px-6 py-4 shadow-sm shadow-neutral-950">
+    <div className="bg-bg-navbar fixed top-0 z-40 flex w-full flex-row items-center justify-between px-6 py-4 shadow-sm shadow-neutral-950">
       <Link href="/">
         <div className="flex flex-row items-center gap-2">
-          <Image src={LastHopeLogo} className="w-32" alt="nqbral-games-logo" />
+          <Image
+            src={LoveLetterLogo}
+            className="w-18"
+            alt="nqbral-games-logo"
+          />
         </div>
       </Link>
       {isLogged == null && <></>}
