@@ -1,7 +1,7 @@
 'use client';
 
 import { useAuth } from '@contexts/AuthContext';
-import { Triangle } from 'react-loader-spinner';
+import { Hearts } from 'react-loader-spinner';
 
 import Footer from './footer/Footer';
 import Navbar from './navbar/Navbar';
@@ -16,11 +16,11 @@ export default function IsPrivate({
   if (isLoading) {
     return (
       <div className="flex min-h-screen w-full flex-col items-center justify-center">
-        <Triangle
+        <Hearts
           visible={true}
           height="80"
           width="80"
-          color="#2F9966"
+          color="oklch(87.9% 0.169 91.605)"
           ariaLabel="three-dots-loading"
         />
       </div>

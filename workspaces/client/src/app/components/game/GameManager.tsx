@@ -9,7 +9,7 @@ import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
 import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Triangle } from 'react-loader-spinner';
+import { Hearts } from 'react-loader-spinner';
 
 import Game from './Game';
 import GameLobby from './GameLobby';
@@ -111,11 +111,11 @@ export default function GameManager() {
       <>
         <Navbar />
         <div className="flex min-h-screen w-full flex-col items-center justify-center">
-          <Triangle
+          <Hearts
             visible={true}
             height="80"
             width="80"
-            color="#2F9966"
+            color="oklch(87.9% 0.169 91.605)"
             ariaLabel="three-dots-loading"
           />
         </div>

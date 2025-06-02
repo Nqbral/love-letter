@@ -6,7 +6,7 @@ import { CLIENT_EVENTS } from '@love-letter/shared/consts/ClientEvents';
 import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
 import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
 import { useEffect, useState } from 'react';
-import { Triangle } from 'react-loader-spinner';
+import { Hearts } from 'react-loader-spinner';
 
 import ModalTemplate from './ModalTemplate';
 
@@ -80,11 +80,11 @@ export default function ModalRecapRound({ player, gameState }: Props) {
           })}
         </div>
         {player?.ready ? (
-          <Triangle
+          <Hearts
             visible={true}
             height="40"
             width="40"
-            color="#2F9966"
+            color="oklch(87.9% 0.169 91.605)"
             ariaLabel="three-dots-loading"
           />
         ) : (

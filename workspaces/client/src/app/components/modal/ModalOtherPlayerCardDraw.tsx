@@ -6,7 +6,7 @@ import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
 import BackCard from '@public/backcard.png';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { Triangle } from 'react-loader-spinner';
+import { Hearts } from 'react-loader-spinner';
 
 import ModalTemplate from './ModalTemplate';
 
@@ -77,11 +77,11 @@ export default function ModalOtherPlayerCardDraw({ gameState }: Props) {
           Cette fenêtre va se fermer automatiquement d&apos;ici quelques
           secondes.
         </div>
-        <Triangle
+        <Hearts
           visible={true}
           height="40"
           width="40"
-          color="#2F9966"
+          color="oklch(87.9% 0.169 91.605)"
           ariaLabel="three-dots-loading"
         />
       </div>

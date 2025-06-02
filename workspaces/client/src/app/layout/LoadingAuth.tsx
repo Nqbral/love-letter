@@ -1,7 +1,7 @@
 'use client';
 
 import { useAuth } from '@contexts/AuthContext';
-import { Triangle } from 'react-loader-spinner';
+import { Hearts } from 'react-loader-spinner';
 
 export default function LoadingAuth({
   children,
@@ -13,11 +13,11 @@ export default function LoadingAuth({
   if (isLoading) {
     return (
       <div className="flex min-h-screen w-full flex-col items-center justify-center">
-        <Triangle
+        <Hearts
           visible={true}
           height="80"
           width="80"
-          color="#2F9966"
+          color="oklch(87.9% 0.169 91.605)"
           ariaLabel="three-dots-loading"
         />
       </div>
