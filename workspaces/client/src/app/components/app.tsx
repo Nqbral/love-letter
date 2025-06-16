@@ -2,11 +2,10 @@
 
 import { AuthProvider } from '@contexts/AuthContext';
 import { SocketProvider } from '@contexts/SocketContext';
-import { MedievalSharp } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-const medievalsharp = MedievalSharp({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400'],
 });
 export default function App({
   children,
@@ -16,7 +15,7 @@ export default function App({
   return (
     <AuthProvider>
       <SocketProvider>
-        <html className={`${medievalsharp.className}`}>
+        <html className={`${montserrat.className}`}>
           <body>{children}</body>
         </html>
       </SocketProvider>

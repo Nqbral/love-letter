@@ -1,9 +1,9 @@
 'use client';
 
-import { MedievalSharp } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import { ToastContentProps } from 'react-toastify';
 
-const medievalsharp = MedievalSharp({
+const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400'],
 });
@@ -15,7 +15,7 @@ type CustomNotificationProps = ToastContentProps<{
 
 export default function CustomNotification({ data }: CustomNotificationProps) {
   return (
-    <div className={`${medievalsharp.className}`}>
+    <div className={`${montserrat.className}`}>
       <div className="flex w-full flex-col items-center gap-4">
         <h3 className="text-primary text-base sm:text-lg">{data.title}</h3>
         <p className="text-center text-sm text-white sm:text-base">
