@@ -5,7 +5,6 @@ import { ToastContentProps } from 'react-toastify';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400'],
 });
 
 type CustomNotificationProps = ToastContentProps<{
