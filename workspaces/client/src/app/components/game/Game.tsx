@@ -1,15 +1,13 @@
-import ModalCheckingCards from '@components/modal/ModalCheckingCards';
-import ModalCheckingOtherPlayerCards from '@components/modal/ModalCheckingOtherPlayerCards';
 import ModalFinishedByLeaving from '@components/modal/ModalFinishedByLeaving';
 import ModalFinishedRound from '@components/modal/ModalFinishedRound';
-import ModalOtherPlayerCardDraw from '@components/modal/ModalOtherPlayerCardDraw';
 import ModalPauseDisconnect from '@components/modal/ModalPauseDisconnect';
+import ModalPlayGuard from '@components/modal/ModalPlayGuard';
 import ModalRecapRound from '@components/modal/ModalRecapRound';
-import ModalRoleDistribution from '@components/modal/ModalRoleDistribution';
 import { useSocket } from '@contexts/SocketContext';
 import { Player } from '@love-letter/shared/classes/Player';
 import { GAME_STATES } from '@love-letter/shared/consts/GameStates';
 import { LOBBY_STATES } from '@love-letter/shared/consts/LobbyStates';
+import { NAME_CARD } from '@love-letter/shared/consts/NameCard';
 import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
 import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
 import { Modal } from '@mui/material';
@@ -17,11 +15,12 @@ import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Slide, ToastContainer } from 'react-toastify';
 
-import DrawedCardsRound from './DrawedCardRound';
-import FoundRemedies from './FoundRemedies';
+import DeckAndDiscardedCards from './DeckAndDiscardedCards';
 import GameInformations from './GameInformations';
+import MyPlayerDisplay from './MyPlayerDisplay';
 import PlayersDisplay from './PlayersDisplay';
-import RoundInformations from './RoundInformations';
+import ScoreToReachInformation from './ScoreToReachInformation';
+import RoundInformations from './gameinformations/RoundInformations';
 
 type Props = {
   lobbyState: ServerPayloads[ServerEvents.LobbyState] | null;
@@ -32,6 +31,11 @@ export default function Game({ lobbyState, gameState }: Props) {
   const { userId } = useSocket();
   const [myPlayer, setPlayer] = useState<Player | undefined>(undefined);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [modalTypeCard, setModalTypeCard] = useState<string | null>(null);
+
+  const handleCardAction = (cardName: string | null) => {
+    setModalTypeCard(cardName);
+  };
 
   useEffect(() => {
     if (gameState != null) {
@@ -84,61 +88,6 @@ export default function Game({ lobbyState, gameState }: Props) {
         open={
           lobbyState?.stateLobby != LOBBY_STATES.GAME_PAUSED &&
           lobbyState?.stateLobby != LOBBY_STATES.GAME_FINISHED_BY_LEAVING &&
-          gameState?.stateGame == GAME_STATES.ROLE_DISTRIBUTION
-        }
-        onClose={() => {}}
-        aria-labelledby="modal-role-distribution"
-        aria-describedby="modal-role-distribution"
-      >
-        <ModalRoleDistribution player={myPlayer} gameState={gameState} />
-      </Modal>
-
-      <Modal
-        open={
-          lobbyState?.stateLobby != LOBBY_STATES.GAME_PAUSED &&
-          lobbyState?.stateLobby != LOBBY_STATES.GAME_FINISHED_BY_LEAVING &&
-          gameState?.stateGame == GAME_STATES.CHECKING_CARDS
-        }
-        onClose={() => {}}
-        aria-labelledby="modal-checking-cards"
-        aria-describedby="modal-checking-cards"
-      >
-        <ModalCheckingCards player={myPlayer} gameState={gameState} />
-      </Modal>
-
-      <Modal
-        open={
-          lobbyState?.stateLobby != LOBBY_STATES.GAME_PAUSED &&
-          lobbyState?.stateLobby != LOBBY_STATES.GAME_FINISHED_BY_LEAVING &&
-          gameState?.stateGame == GAME_STATES.CHECKING_OTHER_PLAYER_CARDS
-        }
-        onClose={() => {}}
-        aria-labelledby="modal-checking-other-cards"
-        aria-describedby="modal-checking-other-cards"
-      >
-        <ModalCheckingOtherPlayerCards
-          player={myPlayer}
-          gameState={gameState}
-        />
-      </Modal>
-
-      <Modal
-        open={
-          lobbyState?.stateLobby != LOBBY_STATES.GAME_PAUSED &&
-          lobbyState?.stateLobby != LOBBY_STATES.GAME_FINISHED_BY_LEAVING &&
-          gameState?.stateGame == GAME_STATES.OTHER_PLAYER_CARD_DRAW
-        }
-        onClose={() => {}}
-        aria-labelledby="modal-other-player-card-draw"
-        aria-describedby="modal-other-player-card-draw"
-      >
-        <ModalOtherPlayerCardDraw gameState={gameState} />
-      </Modal>
-
-      <Modal
-        open={
-          lobbyState?.stateLobby != LOBBY_STATES.GAME_PAUSED &&
-          lobbyState?.stateLobby != LOBBY_STATES.GAME_FINISHED_BY_LEAVING &&
           gameState?.stateGame == GAME_STATES.RECAP_ROUND
         }
         onClose={() => {}}
@@ -161,13 +110,30 @@ export default function Game({ lobbyState, gameState }: Props) {
         <ModalFinishedRound lobbyState={lobbyState} gameState={gameState} />
       </Modal>
 
+      {/* MODALS USER PLAY */}
+      <Modal
+        open={
+          lobbyState?.stateLobby != LOBBY_STATES.GAME_PAUSED &&
+          lobbyState?.stateLobby != LOBBY_STATES.GAME_FINISHED_BY_LEAVING &&
+          modalTypeCard == NAME_CARD.GUARD
+        }
+        onClose={() => setModalTypeCard(null)}
+        aria-labelledby="modal-guard"
+      >
+        <ModalPlayGuard
+          setModalTypeCard={setModalTypeCard}
+          gameState={gameState}
+          myPlayer={myPlayer}
+        />
+      </Modal>
+
       {/* TOAST CONTAINER */}
       <ToastContainer transition={Slide} />
 
       {/* GAME */}
       <div className="flex h-screen min-h-screen w-full flex-row pt-20">
         <button
-          className="absolute top-20 left-4 z-50 lg:hidden"
+          className="fixed top-20 left-4 z-50 lg:hidden"
           onClick={() => setSidebarOpen(true)}
         >
           <Menu size={28} />
@@ -196,11 +162,18 @@ export default function Game({ lobbyState, gameState }: Props) {
           <GameInformations player={myPlayer} gameState={gameState} />
         </div>
 
-        <div className="flex w-full flex-col items-center gap-8">
-          <RoundInformations gameState={gameState} player={myPlayer} />
+        <div className="flex w-full flex-col items-center gap-4 sm:gap-6">
+          <div className="lg:hidden">
+            <RoundInformations gameState={gameState} player={myPlayer} />
+          </div>
+          <ScoreToReachInformation gameState={gameState} />
           <PlayersDisplay gameState={gameState} myPlayer={myPlayer} />
-          <DrawedCardsRound gameState={gameState} />
-          <FoundRemedies gameState={gameState} />
+          <DeckAndDiscardedCards gameState={gameState} />
+          <MyPlayerDisplay
+            gameState={gameState}
+            myPlayer={myPlayer}
+            handleCardAction={handleCardAction}
+          />
         </div>
       </div>
     </>

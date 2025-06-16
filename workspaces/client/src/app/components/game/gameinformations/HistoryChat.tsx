@@ -24,7 +24,7 @@ export default function HistoryChat({ gameState }: Props) {
   }, [historyEvents]);
 
   return (
-    <div className="flex h-full min-h-[250px] w-72 flex-col overflow-hidden rounded-lg bg-neutral-900">
+    <div className="bg-bg-navbar flex h-full min-h-[250px] w-72 flex-col overflow-hidden rounded-lg shadow-sm shadow-neutral-950">
       <div className="px-4 pt-4 font-bold">Historique de la partie</div>
       <hr className="my-2" />
       <ul className="custom-scrollbar h-full overflow-y-auto text-sm">

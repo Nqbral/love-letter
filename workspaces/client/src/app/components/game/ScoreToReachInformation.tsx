@@ -5,11 +5,11 @@ type Props = {
   gameState: ServerPayloads[ServerEvents.GameState] | null;
 };
 
-export default function FoundRemedies({ gameState }: Props) {
+export default function ScoreToReachInformation({ gameState }: Props) {
   return (
-    <div className="pb-8 text-base md:text-lg lg:text-xl">
-      Remède(s) trouvé(s) :{' '}
-      <span className="text-emerald-400">{gameState?.remediesFound}</span>
+    <div className="text-primary-hover text-center text-sm italic md:text-base">
+      Le premier joueur à avoir {gameState?.scoreToReach} points, gagne la
+      partie.
     </div>
   );
 }

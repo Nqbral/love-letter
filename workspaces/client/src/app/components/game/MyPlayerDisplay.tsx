@@ -1,0 +1,87 @@
+import { faCoins } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Player } from '@love-letter/shared/classes/Player';
+import { NAME_CARD } from '@love-letter/shared/consts/NameCard';
+import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
+import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
+import Handmaid from '@public/handmaid.png';
+import Spy from '@public/spy.png';
+import Image from 'next/image';
+
+import PlayerCards from './my_player/MyPlayerCard';
+
+type Props = {
+  gameState: ServerPayloads[ServerEvents.GameState] | null;
+  myPlayer: Player | undefined;
+  handleCardAction: (cardName: string | null) => void;
+};
+
+export default function MyPlayerDisplay({
+  gameState,
+  myPlayer,
+  handleCardAction,
+}: Props) {
+  let classesPlayer = 'text-' + myPlayer?.color;
+
+  if (!myPlayer?.alive) {
+    classesPlayer += ' line-through';
+  }
+
+  return (
+    <div className="flex flex-col items-center gap-2 border-1 border-slate-700 px-8 py-4 sm:gap-4">
+      <div className="flex flex-row items-center gap-2 text-sm sm:text-base">
+        <div>{myPlayer?.score}</div>
+        <FontAwesomeIcon icon={faCoins} color="oklch(92.4% 0.12 95.746)" />
+        <div className={classesPlayer}>{myPlayer?.userName}</div>
+      </div>
+      <div className="flex flex-row gap-6 text-xs sm:gap-8 sm:text-sm md:gap-12 md:text-base">
+        <div className="flex flex-col items-center gap-2">
+          <div className="">Main</div>
+          <div className="flex flex-row gap-2">
+            <PlayerCards
+              isPlayerTurn={gameState?.playerTurn?.userId == myPlayer?.userId}
+              cards={myPlayer?.hand}
+              handleCardAction={handleCardAction}
+            />
+          </div>
+        </div>
+        {myPlayer?.alive ? (
+          <div className="flex flex-col items-center gap-2">
+            <div className="w-full text-center">Carte(s) active(s)</div>
+            <div className="flex flex-row gap-2">
+              {myPlayer?.activeCards.length == 0 ? (
+                <div className="h-[75px] w-12 rounded-sm border-1 border-dashed border-slate-700 sm:h-[97px] sm:w-16 md:h-[122px] md:w-20 lg:h-[142px] lg:w-24" />
+              ) : (
+                myPlayer?.activeCards.map((card, index) => {
+                  if (card.nameCard == NAME_CARD.SPY) {
+                    return (
+                      <Image
+                        key={'activeCards-' + myPlayer.userId + '-' + index}
+                        className="w-16 sm:w-20 md:w-24"
+                        src={Spy}
+                        alt="spy"
+                      />
+                    );
+                  }
+
+                  return (
+                    <Image
+                      key={'activeCards-' + myPlayer.userId + '-' + index}
+                      className="w-16 sm:w-20 md:w-24"
+                      src={Handmaid}
+                      alt="handmaid"
+                    />
+                  );
+                })
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className="text-center text-xs sm:text-sm md:text-base">
+            Éliminé
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

@@ -38,14 +38,14 @@ export default function GameManager() {
   >({
     lobbyId: '',
     stateGame: '',
+    roundNumber: 0,
     players: [],
-    roundNumber: 1,
-    remediesToFind: 1,
     playerTurn: null,
-    checkedPlayerHand: null,
-    cardsDisplayedRound: [],
-    remediesFound: 0,
-    statusFinish: '',
+    playersTurnOrder: [],
+    deck: [],
+    lastPlayedCard: null,
+    secondPlayedCard: null,
+    scoreToReach: 0,
     historyEvents: [],
   });
 

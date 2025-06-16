@@ -1,5 +1,4 @@
 import PrimaryButton from '@components/buttons/PrimaryButton';
-import CardImage from '@components/images/CardImage';
 import { useSocket } from '@contexts/SocketContext';
 import { Player } from '@love-letter/shared/classes/Player';
 import { CLIENT_EVENTS } from '@love-letter/shared/consts/ClientEvents';
@@ -39,13 +38,7 @@ export default function ModalRecapRound({ player, gameState }: Props) {
         <div className="flex flex-col items-center gap-4 text-xs sm:text-sm md:text-base">
           <div className="flex flex-row items-center justify-center gap-2">
             {gameState?.cardsDisplayedRound.map((card, index) => {
-              return (
-                <CardImage
-                  key={`card-recap-round-${index}`}
-                  card={card}
-                  showText={true}
-                />
-              );
+              return <></>;
             })}
           </div>
         </div>

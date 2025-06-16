@@ -19,15 +19,14 @@ export default function RoundInformations({ gameState, player }: Props) {
 
     setIsPlayerTurn(false);
   }, [gameState, player]);
+
   return (
-    <div className="flex flex-col items-center gap-2 text-center">
-      <div className="text-lg sm:text-xl md:text-2xl">
-        Manche {gameState?.roundNumber}
-      </div>
+    <div className="bg-bg-navbar flex w-48 flex-col items-center gap-2 rounded-lg px-2 py-4 text-center text-base shadow-sm shadow-neutral-950 sm:w-72 sm:text-lg md:text-2xl">
+      <div>Manche {gameState?.roundNumber}</div>
       {isPlayerTurn ? (
-        <div>À votre tour de jouer</div>
+        <div className="text-sm sm:text-base">À votre tour de jouer</div>
       ) : (
-        <div>
+        <div className="text-sm sm:text-base">
           Au tour de{' '}
           <span className={`text-${gameState?.playerTurn?.color}`}>
             {gameState?.playerTurn?.userName}

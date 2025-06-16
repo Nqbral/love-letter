@@ -21,12 +21,12 @@ export default function GameLobby({ lobbyState }: Props) {
 
   const handleStart = () => {
     if (lobbyState?.players != undefined) {
-      if (lobbyState.players.length < 4) {
+      if (lobbyState.players.length < 2) {
         setErrMsgName("Il n'y a pas assez de joueurs pour lancer la partie.");
         return;
       }
 
-      if (lobbyState.players.length > 8) {
+      if (lobbyState.players.length > 6) {
         setErrMsgName('Il y a trop de joueurs pour lancer la partie.');
         return;
       }
@@ -42,8 +42,8 @@ export default function GameLobby({ lobbyState }: Props) {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-6 text-sm sm:text-base">
-      <p className="italic">Nombre de joueurs minimum requis : 4</p>
-      <p className="italic">Nombre de joueurs maximum : 8</p>
+      <p className="italic">Nombre de joueurs minimum requis : 2</p>
+      <p className="italic">Nombre de joueurs maximum : 6</p>
       <div className="flex w-80 flex-col items-center justify-center gap-2 border-1 border-slate-700 py-4 sm:w-100">
         <h2 className="mb-2 text-base sm:text-lg">Liste des joueurs</h2>
         {lobbyState?.players.map((player, index) => {
