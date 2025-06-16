@@ -14,7 +14,7 @@ export default function Navbar() {
 
   const toLogin = () => {
     const currentUrl =
-      process.env.NEXT_PUBLIC_WS_LAST_HOPE_URL +
+      process.env.NEXT_PUBLIC_WS_LOVE_LETTER_URL +
       pathname +
       (searchParams ? `?${searchParams.toString()}` : '');
 
