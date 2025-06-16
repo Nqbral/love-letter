@@ -27,150 +27,144 @@ export default function Rules() {
               Présentation
             </h2>
             <p className="text-center">
-              Dans <span className="font-bold">Love Letter</span> 2 à 6
-              soupirants s&apos;affrontent pour que leurs lettres soient remises
-              à la Princesse du royaume, qui cherche le partenaire et le
-              confident idéal, en prévision du jour où elle montera sur le
-              trône.
+              Dans <span className="font-bold">Shadow Network</span>, de 2 à 6
+              agents secrets rivalisent pour remettre un message crucial
+              directement entre les mains du Président. Celui-ci ne fera
+              confiance qu&apos;à une seule personne pour le recevoir, et le
+              sort du monde libre en dépend.
             </p>
           </div>
+
           <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
               Mise en place du jeu
             </h2>
             <p className="text-center">
-              Lors d&apos;une partie de{' '}
-              <span className="font-bold">Love Letter</span>, les 21 cartes
-              personnages sont mélangées au début de chaque manche et la
-              première carte du paquet est mise de côté face cachée.
+              Au début de chaque manche de{' '}
+              <span className="font-bold">Shadow Network</span>, les 21 cartes
+              Opérateur sont mélangées. Une carte est ensuite placée face cachée
+              à côté pour garantir le secret.
             </p>
           </div>
+
           <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
               Déroulement de la Partie
             </h2>
             <p className="text-center">
-              <span className="font-bold">Love Letter</span> se déroule selon
-              plusieurs manches durant lesquelles vous faites appel aux alliés,
-              amis et à la famille de la princesse afin qu&apos;ils lui
-              remettent une lettre d&apos;amour.
+              Chaque manche de <span className="font-bold">Shadow Network</span>{' '}
+              vous met dans la peau d&apos;un agent tentant de faire parvenir un
+              message codé par l&apos;intermédiaire de membres influents du
+              réseau.
               <br />
-              La carte que vous avez en main représente la personne qui
-              transporte actuellement votre missive, mais elle est susceptible
-              de changer à mesure que vous jouez et piochez des cartes pendant
-              la manche.
+              La carte en main représente la personne transportant actuellement
+              votre message. Cette personne peut changer au fil des tours, selon
+              les cartes piochées et jouées.
               <br />
-              Pour remporter une manche, vous devez détenir la carte dont la
-              valeur est la plus élevée à la fin de cette manche ou être le
-              dernier joueur en lice.
+              Pour remporter une manche, vous devez être le dernier agent en
+              jeu, ou détenir la carte la plus influente au moment où la manche
+              se termine.
             </p>
           </div>
+
           <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
               Tour des Joueurs
             </h2>
             <p className="text-center">
-              Effectuez vos tours de jeu en sens horaire. À votre tour, piochez
-              1 carte du paquet. Choisissez et jouez ensuite l&apos;une de vos
-              deux cartes en résolvant son effet.
+              Les joueurs jouent dans le sens horaire. Au début de votre tour,
+              piochez 1 carte. Choisissez ensuite l&apos;une des deux cartes en
+              main, jouez-la et appliquez son effet.
             </p>
           </div>
+
           <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
-              Quitter la Manche
+              Exclusion d&apos;une Manche
             </h2>
             <p className="text-center">
-              Certains effets de cartes vous forcent à quitter la manche en
-              cours ; un soupirant adverse s&apos;est assuré que votre lettre
-              n&apos;arrive jamais à destination.
+              Certains effets de cartes peuvent entraîner votre exclusion de la
+              manche : votre message a été intercepté ou votre identité révélée.
               <br />
-              Lorsque cela se produit,{' '}
+              Dans ce cas,{' '}
               <span className="font-bold">
-                défaussez votre main face visible devant vous
+                défaussez votre carte face visible
               </span>{' '}
-              (sans résoudre l&apos;effet de la carte qu&apos;elle contenait).
+              sans appliquer son effet.
               <br />
-              Jusqu&apos;au début de la prochaine manche,{' '}
               <span className="font-bold">
-                {' '}
-                vous ne pouvez plus être ciblé par des effets de cartes et vous
-                passez votre tour
+                Vous ne pouvez plus être ciblé par d&apos;autres effets et vous
+                passez votre tour jusqu&apos;à la prochaine manche.
               </span>
-              .
             </p>
           </div>
+
           <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
               Cartes Jouées et Défaussées
             </h2>
             <p className="text-center">
-              Comparé à la version classique du jeu, les seules cartes{' '}
-              <span className="font-bold">face visible</span> sont :
+              Les seules cartes visibles pendant la partie sont :
             </p>
             <ul className="list-inside list-disc text-center">
+              <li>la dernière carte jouée par chaque joueur</li>
               <li>
-                la dernière carte défaussée ou jouée par l&apos;un des joueurs
-              </li>
-              <li>
-                les cartes dont les effets sont en cours (Espionne ou Servante)
+                les cartes avec un effet en cours (comme l&apos;Assistante
+                Discrète ou l&apos;Opérateur Secret)
               </li>
             </ul>
           </div>
+
           <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
               Fin de la manche
             </h2>
             <p className="text-center">
-              La manche peut s&apos;achever de deux manières : soit quand{' '}
-              <span className="font-bold">le paquet est épuisé</span>, soit
-              quand lorsqu&apos;il ne reste plus qu&apos;
-              <span className="font-bold">un seul joueur en lice</span>.
+              Une manche se termine lorsque{' '}
+              <span className="font-bold">le paquet est vide</span> ou qu&apos;
+              <span className="font-bold">
+                il ne reste qu&apos;un seul agent actif
+              </span>
+              .
               <br />
               <br />
-              Si le paquet se retrouve vide, tous les joueurs encore en lice
-              révèlent et comparent les carte de leur main{' '}
-              <span className="font-bold">après le tour du joueur actif</span>.
+              Si le paquet est vide, les agents restants comparent leurs cartes
+              après le dernier tour. Celui ayant la valeur la plus élevée
+              remporte la manche et reçoit un jeton Dossier Confidentiel.
               <br />
-              Si vous détenez la carte dont la valeur est la plus élevée, vous
-              remportez la manche et gagnez 1 pion Faveur ; votre lettre est
-              bien parvenue à la Princesse.
-              <br />
-              En cas d&apos;égalité, tous les joueurs concernés remportent la
-              manche et chacun d&apos;eux gagne 1 pion faveur.
+              En cas d&apos;égalité, les joueurs concernés remportent chacun un
+              jeton.
               <br />
               <br />
-              Si vous êtes le seul joueur à participer encore à la manche en
-              cours (car tous les autres ont dû la quitter suite à des effets de
-              cartes), celle-ci s&apos;achève immédiatement ; vous la remporter
-              et gagnez 1 pion faveur.
+              Si un seul joueur est encore actif, il remporte immédiatement la
+              manche.
             </p>
           </div>
+
           <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
-              Commencer la manche suivante
+              Manche suivante
             </h2>
             <p className="text-center">
-              Pour débuter la manche suivante, toutes les cartes personnages
-              sont à nouveaux réunies, mélangées puis la première carte est
-              alors défaussée comme dans la première manche.
+              Toutes les cartes sont réunies, mélangées, puis une carte est mise
+              de côté face cachée.
               <br />
               <span className="font-bold">
-                Le joueur qui a remporté la manche précédente
+                Le vainqueur de la manche précédente
               </span>{' '}
-              effectue alors son tour en premier. Si la manche précédente
-              s&apos;est soldée par une égalité, un joueur au hasard sera le
-              premier joueur parmi les concernés.
+              commence. En cas d&apos;égalité, un joueur parmi les gagnants
+              commence au hasard.
             </p>
           </div>
+
           <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
               Remporter la partie
             </h2>
             <p className="text-center">
-              La partie s&apos;achève lorsqu&apos;un joueur détient suffisamment
-              de pions Faveur pour gagner (ce qui dépend du nombre de joueurs,
-              voir tableau ci-dessous). Il est possible que plusieurs joueurs
-              remportent simultanément la partie.
+              La partie s&apos;arrête lorsqu&apos;un joueur possède suffisamment
+              de jetons Dossier Confidentiel pour l&apos;emporter (selon le
+              nombre de joueurs, voir tableau ci-dessous).
             </p>
             <table>
               <tbody>
@@ -220,32 +214,33 @@ export default function Rules() {
               </tbody>
             </table>
           </div>
+
           <div className="flex flex-col items-center gap-3">
             <h2 className="text-xl underline underline-offset-4">
               Effet des cartes
             </h2>
             <p className="mb-6 text-center">
-              Chaque carte Personnage représente une personne importante dans la
-              vie de la Princesse. Chaque carte a son propre effet et la section
-              suivante fournit les règles complètes pour chaque personnage.
+              Chaque carte Opérateur incarne un personnage influent du réseau
+              d&apos;espionnage. Chacun dispose de compétences uniques que vous
+              devrez utiliser à bon escient pour atteindre votre objectif.
             </p>
 
             <div className="flex flex-col items-center gap-8">
-              {/* Princesse */}
+              {/* Double Agent */}
               <CardDescription
-                nameCard="Princesse"
+                nameCard="Double Agent"
                 img={DoubleAgentImg}
                 altimg="princess_img"
                 description={
                   <p className="text-center">
-                    La princesse est la carte avec{' '}
+                    Le Double Agent est la carte avec{' '}
                     <span className="font-bold">
                       la valeur la plus élevée du jeu
                     </span>
                     .
                     <br />
                     <br />
-                    Cependant, si vous jouez ou défaussez la Princesse{' '}
+                    Toutefois, si vous jouez ou défaussez cette carte{' '}
                     <span className="font-bold">
                       pour quelque raison que ce soit
                     </span>
@@ -255,39 +250,43 @@ export default function Rules() {
                 value={9}
                 nbCard={1}
               />
-              {/* Comtesse */}
+
+              {/* Diplomat */}
               <CardDescription
-                nameCard="Comtesse"
+                nameCard="Diplomate"
                 img={DiplomatImg}
-                altimg="countess_img"
+                altimg="diplomat_img"
                 description={
                   <p className="text-center">
-                    La Comtesse n&apos;a pas d&apos;effect actif
+                    La Diplomate n&apos;a pas d&apos;effect actif
                     lorsqu&apos;elle est jouée ou défaussée.
                     <br />
                     <br />
                     Vous <span className="font-bold">devez</span> la jouer
                     pendant votre tour si l&apos;autre carte de votre main est
-                    le <span className="font-bold">Roi</span> ou un{' '}
-                    <span className="font-bold">Prince</span>.
+                    le{' '}
+                    <span className="font-bold">Directeur des Opérations</span>{' '}
+                    ou un <span className="font-bold">Agent Infiltré</span>.
                     <br />
                     <br />
                     Néanmoins, vous pouvez choisir de la jouer durant votre tour
-                    même si vous ne détenez ni le Roi, ni un Prince.
+                    même si vous ne détenez ni le Directeur des Opérations, ni
+                    un Agent Infiltré.
                     <br />
                     <br />
                     Son effet ne s&apos;applique pas lorsque vous piochez des
-                    cartes suite à d&apos;autres effets (Chancelier).
+                    cartes suite à d&apos;autres effets (Stratège).
                   </p>
                 }
                 value={8}
                 nbCard={1}
               />
-              {/* Roi */}
+
+              {/* Directeur des opérations */}
               <CardDescription
-                nameCard="Roi"
+                nameCard="Directeur des Opérations"
                 img={DirectorOfOperationsImg}
-                altimg="king_img"
+                altimg="director_of_operations_img"
                 description={
                   <p className="text-center">
                     Choisissez un autre joueur et échangez votre main contre la
@@ -297,11 +296,12 @@ export default function Rules() {
                 value={7}
                 nbCard={1}
               />
-              {/* Chancelier */}
+
+              {/* Stratège */}
               <CardDescription
-                nameCard="Chancelier"
+                nameCard="Stratège"
                 img={StrategistImg}
-                altimg="chancellor_img"
+                altimg="strategist_img"
                 description={
                   <p className="text-center">
                     Piochez 2 cartes du paquet et ajoutez-les à votre main.
@@ -314,18 +314,19 @@ export default function Rules() {
                     <br />
                     S&apos;il ne reste qu&apos;une seule carte dans le paquet,
                     piochez-la et remettez-en une à sa place. Si le paquet est
-                    épuisé, le Chancelier n&apos;a pas d&apos;effet
-                    lorsqu&apos;il est joué.
+                    épuisé, le Stratège n&apos;a pas d&apos;effet lorsqu&apos;il
+                    est joué.
                   </p>
                 }
                 value={6}
                 nbCard={2}
               />
+
               {/* Prince */}
               <CardDescription
-                nameCard="Prince"
+                nameCard="Agent Infiltré"
                 img={UndercoverAgentImg}
-                altimg="prince_img"
+                altimg="undercover_agent_img"
                 description={
                   <p className="text-center">
                     Choisissez{' '}
@@ -341,20 +342,21 @@ export default function Rules() {
                     face cachée mise de côté en début de la partie
                     <br />
                     <br />
-                    Si un joueur vous cible en résolvant l&apos;effet du Prince
-                    et que vous êtes contrait de défausser la Princesse, vous
-                    quittez la manche immédiatement sans piocher de nouvelle
-                    main.
+                    Si un joueur vous cible en résolvant l&apos;effet du Agent
+                    Infiltré et que vous êtes contrait de défausser l&apos;Agent
+                    Double, vous quittez la manche immédiatement sans piocher de
+                    nouvelle main.
                   </p>
                 }
                 value={5}
                 nbCard={2}
               />
-              {/* Prince */}
+
+              {/* Assistante discrète */}
               <CardDescription
-                nameCard="Servante"
+                nameCard="Assistante discrète"
                 img={DiscreetAssistantImg}
-                altimg="handmaid_img"
+                altimg="discreet_assistant_img"
                 description={
                   <div>
                     <p className="text-center">
@@ -369,24 +371,24 @@ export default function Rules() {
                         tous les autres joueurs
                       </span>{' '}
                       encore en lice seraient &quot;protégés&quot; par une
-                      Servante au moment où vous jouez une carte, suivez ces
-                      consignes :
+                      Assistante discrète au moment où vous jouez une carte,
+                      suivez ces consignes :
                     </p>
                     <br />
                     <ul className="list-inside list-disc text-center">
                       <li>
                         Si cette carte nécessite que vous choisissez{' '}
                         <span className="font-bold">un autre joueur</span>{' '}
-                        (Garde, Prêtre, Baron ou Roi), elle n&apos;a pas
-                        d&apos;effet.
+                        (Agent de Sécurité, Informateur, Magnat ou Directeur des
+                        Opérations), elle n&apos;a pas d&apos;effet.
                       </li>
                       <li>
                         Si cette carte nécessite que vous choisissez{' '}
                         <span className="font-bold">
                           n&apos;importe quel joueur
                         </span>{' '}
-                        (Prince), vous êtes contraint de vous cibler vous-même
-                        pour résoudre son effet.
+                        (Agent Infiltré), vous êtes contraint de vous cibler
+                        vous-même pour résoudre son effet.
                       </li>
                     </ul>
                   </div>
@@ -394,11 +396,12 @@ export default function Rules() {
                 value={4}
                 nbCard={2}
               />
-              {/* Baron */}
+
+              {/* Magnat */}
               <CardDescription
-                nameCard="Baron"
+                nameCard="Magnat"
                 img={MagnateImg}
-                altimg="baron_img"
+                altimg="magnate_img"
                 description={
                   <p className="text-center">
                     Choisissez un autre joueur et comparer discrètement vos deux
@@ -413,11 +416,12 @@ export default function Rules() {
                 value={3}
                 nbCard={2}
               />
-              {/* Prêtre */}
+
+              {/* Informateur */}
               <CardDescription
-                nameCard="Prêtre"
+                nameCard="Informateur"
                 img={InformantImg}
-                altimg="priest_img"
+                altimg="informant_img"
                 description={
                   <p className="text-center">
                     Choisissez un autre joueur et regardez discrètement sa main
@@ -427,45 +431,47 @@ export default function Rules() {
                 value={2}
                 nbCard={2}
               />
-              {/* Garde */}
+
+              {/* Agent de Sécurité */}
               <CardDescription
-                nameCard="Garde"
+                nameCard="Agent de Sécurité"
                 img={SecurityAgentImg}
-                altimg="guard_img"
+                altimg="security_agent_img"
                 description={
                   <p className="text-center">
                     Choisissez un autre joueur et nommez un personnage autre que
-                    le Garde. Si le joueur choisi a cette carte en main, il
-                    quitte la manche.
+                    le Agent de Sécurité. Si le joueur choisi a cette carte en
+                    main, il quitte la manche.
                   </p>
                 }
                 value={1}
                 nbCard={6}
               />
-              {/* Espionne */}
+
+              {/* Opérateur Secret */}
               <CardDescription
-                nameCard="Espionne"
+                nameCard="Opérateur Secret"
                 img={SecretOperatorImg}
-                altimg="spy_img"
+                altimg="secret_operator_img"
                 description={
                   <p className="text-center">
-                    Une Espionne n&apos;a pas d&apos;effet actif
-                    lorsqu&apos;elle est jouée ou défaussée.
+                    Un Opérateur Secret n&apos;a pas d&apos;effet actif
+                    lorsqu&apos;il est joué ou défaussé.
                     <br />
                     <br />À la fin de manche, si vous êtes{' '}
                     <span className="font-bold">
                       le seul joueur encore en lice
                     </span>{' '}
-                    qui a joué ou défaussé une Espionne, vous gagnez 1 pion
-                    Faveur.
+                    qui a joué ou défaussé une Opérateur Secret, vous gagnez 1
+                    Dossier Confidentiel.
                     <br />
                     <br />
                     Cela ne revient pas à remporter la manche ; le vainqueur
                     (même si c&apos;est vous) gagne quand même son pion faveur.
                     <br />
                     <br />
-                    Vous ne gagnez toujours qu&apos;un seul pion, même si vous
-                    jouez et/ou défaussez les deux Espionnes.
+                    Vous ne gagnez toujours qu&apos;un seul dossier, même si
+                    vous jouez et/ou défaussez les deux Opérateurs Secrets.
                   </p>
                 }
                 value={0}

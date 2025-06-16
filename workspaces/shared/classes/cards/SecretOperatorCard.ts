@@ -7,7 +7,7 @@ export class SecretOperatorCard extends Card {
       NAME_CARD.SECRET_OPERATOR,
       0,
       1,
-      "Si vous êtes le seul joueur en lice avec un opérateur secret joué à la fin de la manche, gagnez un jeton d'influence."
+      "Si vous êtes le seul joueur en lice avec un opérateur secret joué à la fin de la manche, gagnez un jeton Dossier Confidentiel."
     );
   }
 }
