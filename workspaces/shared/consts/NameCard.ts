@@ -1,5 +1,12 @@
 export const NAME_CARD = {
-  BOMB: "Bombe",
-  NEUTRAL: "Neutre",
-  REMEDY: "Remède",
+  PRINCESS: "Princesse",
+  COUNTESS: "Comtesse",
+  KING: "Roi",
+  CHANCELLOR: "Chancelier",
+  PRINCE: "Prince",
+  HANDMAID: "Servante",
+  BARON: "Baron",
+  PRIEST: "Prêtre",
+  GUARD: "Garde",
+  SPY: "Espionne",
 } as const;
