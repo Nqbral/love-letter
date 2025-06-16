@@ -19,14 +19,11 @@ import {
 import { AUTH_EVENTS } from '@shared/consts/AuthEvents';
 import { CLIENT_EVENTS } from '@shared/consts/ClientEvents';
 import { LOBBY_STATES } from '@shared/consts/LobbyStates';
+import { NAME_CARD } from '@shared/consts/NameCard';
 import { ServerEvents } from '@shared/enums/ServerEvents';
 import { Server } from 'socket.io';
 
-import {
-  CheckingOtherHandDto,
-  DrawOtherPlayerCardDto,
-  LobbyJoinDto,
-} from './lobby/dtos';
+import { LobbyJoinDto } from './lobby/dtos';
 
 @WebSocketGateway()
 export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
@@ -191,7 +188,11 @@ export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
     if (!lobby) throw new WsException('Lobby introuvable');
 
     this.lobbyManager.clearLastLobbyForUser(client.userId);
-    client.emit(ServerEvents.LobbyLeave);
+    this.lobbyManager.emitEventForAllConnexionsClient(
+      client,
+      ServerEvents.LobbyLeave,
+      undefined,
+    );
 
     if (
       lobby.stateLobby === LOBBY_STATES.IN_LOBBY &&
@@ -225,42 +226,16 @@ export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
     if (!lobby) throw new WsException('Lobby introuvable');
 
-    lobby.instance.onGameReady(client);
+    // lobby.instance.onGameReady(client);
   }
 
   @UseGuards(JwtWsGuard)
-  @SubscribeMessage(CLIENT_EVENTS.CHECKING_OTHER_CARDS)
-  onCheckingOtherHand(
-    @ConnectedSocket() client: AuthenticatedSocket,
-    @MessageBody() data: CheckingOtherHandDto,
-  ) {
+  @SubscribeMessage(CLIENT_EVENTS.GAME_READY)
+  onPlaySpy(@ConnectedSocket() client: AuthenticatedSocket) {
     const lobby = client.lobby;
 
     if (!lobby) throw new WsException('Lobby introuvable');
 
-    lobby.instance.onCheckingOtherHand(client, data.idOtherPlayer);
-  }
-
-  @UseGuards(JwtWsGuard)
-  @SubscribeMessage(CLIENT_EVENTS.BACK_TO_PLAYER_TURN)
-  onBackToPlayerTurn(@ConnectedSocket() client: AuthenticatedSocket) {
-    const lobby = client.lobby;
-
-    if (!lobby) throw new WsException('Lobby introuvable');
-
-    lobby.instance.onBackToPlayerTurn(client);
-  }
-
-  @UseGuards(JwtWsGuard)
-  @SubscribeMessage(CLIENT_EVENTS.DRAW_OTHER_PLAYER_CARD)
-  onDrawOtherPlayerCard(
-    @ConnectedSocket() client: AuthenticatedSocket,
-    @MessageBody() data: DrawOtherPlayerCardDto,
-  ) {
-    const lobby = client.lobby;
-
-    if (!lobby) throw new WsException('Lobby introuvable');
-
-    lobby.instance.onDrawOtherPlayerCard(client, data.indexCardDraw);
+    lobby.instance.playCard(client, NAME_CARD.SPY, undefined);
   }
 }
