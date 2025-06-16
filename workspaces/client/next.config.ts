@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  transpilePackages: ['@love-letter/shared'],
+  transpilePackages: ['@shadow-network/shared'],
   devIndicators: false,
 };
 

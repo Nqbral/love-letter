@@ -1,8 +1,5 @@
 import CustomNotification from '@components/notifications/CustomNotification';
 import { useSocket } from '@contexts/SocketContext';
-import { Card } from '@love-letter/shared/classes/Card';
-import { CLIENT_EVENTS } from '@love-letter/shared/consts/ClientEvents';
-import { NAME_CARD } from '@love-letter/shared/consts/NameCard';
 import MagnateImg from '@public/baron.png';
 import StrategistImg from '@public/chancellor.png';
 import DiplomatImg from '@public/countess.png';
@@ -13,6 +10,9 @@ import InformantImg from '@public/priest.png';
 import UndercoverAgentImg from '@public/prince.png';
 import DoubleAgentImg from '@public/princess.png';
 import SecretOperatorImg from '@public/spy.png';
+import { Card } from '@shadow-network/shared/classes/Card';
+import { CLIENT_EVENTS } from '@shadow-network/shared/consts/ClientEvents';
+import { NAME_CARD } from '@shadow-network/shared/consts/NameCard';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
 

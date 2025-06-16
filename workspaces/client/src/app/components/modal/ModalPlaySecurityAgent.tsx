@@ -1,9 +1,9 @@
 import SecondaryButton from '@components/buttons/SecondaryButton';
 import CardSelector from '@components/game/CardSelector';
 import PlayerSelector from '@components/game/PlayerSelector';
-import { Player } from '@love-letter/shared/classes/Player';
-import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
-import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
+import { Player } from '@shadow-network/shared/classes/Player';
+import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
+import { ServerPayloads } from '@shadow-network/shared/types/ServerPayloads';
 import { useState } from 'react';
 
 import ModalTemplate from './ModalTemplate';

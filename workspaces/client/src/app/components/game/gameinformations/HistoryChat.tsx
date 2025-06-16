@@ -1,6 +1,6 @@
-import { HistoryEvent } from '@love-letter/shared/classes/HistoryEvent';
-import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
-import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
+import { HistoryEvent } from '@shadow-network/shared/classes/HistoryEvent';
+import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
+import { ServerPayloads } from '@shadow-network/shared/types/ServerPayloads';
 import { useEffect, useRef, useState } from 'react';
 
 import HistoryChatListTile from './HistoryChatListTile';

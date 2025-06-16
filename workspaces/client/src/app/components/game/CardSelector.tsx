@@ -1,4 +1,4 @@
-import { NAME_CARD } from '@love-letter/shared/consts/NameCard';
+import { NAME_CARD } from '@shadow-network/shared/consts/NameCard';
 
 import ListTileCardSelector from './list_tiles/ListTileCardSelector';
 

@@ -1,7 +1,7 @@
-import { Card } from '@love-letter/shared/classes/Card';
-import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
-import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
 import BackCard from '@public/backcard.png';
+import { Card } from '@shadow-network/shared/classes/Card';
+import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
+import { ServerPayloads } from '@shadow-network/shared/types/ServerPayloads';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 

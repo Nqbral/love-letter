@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Love Letter',
-  description: 'Love Letter - online game',
+  title: 'Shadow Network',
+  description: 'Shadow Network - online game',
 };
 
 export default function RootLayout({

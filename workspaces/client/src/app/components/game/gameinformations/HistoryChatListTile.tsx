@@ -1,5 +1,5 @@
-import { HistoryEvent } from '@love-letter/shared/classes/HistoryEvent';
-import { HISTORY_EVENTS } from '@love-letter/shared/consts/HistoryEvents';
+import { HistoryEvent } from '@shadow-network/shared/classes/HistoryEvent';
+import { HISTORY_EVENTS } from '@shadow-network/shared/consts/HistoryEvents';
 
 type Props = {
   event: HistoryEvent;

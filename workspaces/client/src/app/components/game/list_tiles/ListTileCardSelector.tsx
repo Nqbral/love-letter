@@ -1,4 +1,4 @@
-import { NAME_CARD } from '@love-letter/shared/consts/NameCard';
+import { NAME_CARD } from '@shadow-network/shared/consts/NameCard';
 
 type Props = {
   cardName: string;

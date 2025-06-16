@@ -3,10 +3,10 @@
 import Navbar from '@components/navbar/Navbar';
 import { useSocket } from '@contexts/SocketContext';
 import { Listener } from '@lib/SocketManager';
-import { CLIENT_EVENTS } from '@love-letter/shared/consts/ClientEvents';
-import { LOBBY_STATES } from '@love-letter/shared/consts/LobbyStates';
-import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
-import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
+import { CLIENT_EVENTS } from '@shadow-network/shared/consts/ClientEvents';
+import { LOBBY_STATES } from '@shadow-network/shared/consts/LobbyStates';
+import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
+import { ServerPayloads } from '@shadow-network/shared/types/ServerPayloads';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Hearts } from 'react-loader-spinner';

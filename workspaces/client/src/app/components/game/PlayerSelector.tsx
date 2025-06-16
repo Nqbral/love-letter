@@ -1,5 +1,5 @@
-import { Player } from '@love-letter/shared/classes/Player';
-import { NAME_CARD } from '@love-letter/shared/consts/NameCard';
+import { Player } from '@shadow-network/shared/classes/Player';
+import { NAME_CARD } from '@shadow-network/shared/consts/NameCard';
 
 type Props = {
   players: Player[] | undefined;

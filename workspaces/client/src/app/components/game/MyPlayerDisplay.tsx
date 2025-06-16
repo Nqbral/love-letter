@@ -1,11 +1,11 @@
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Player } from '@love-letter/shared/classes/Player';
-import { NAME_CARD } from '@love-letter/shared/consts/NameCard';
-import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
-import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
 import DiscreetAssistantImg from '@public/handmaid.png';
 import SecretOperatorImg from '@public/spy.png';
+import { Player } from '@shadow-network/shared/classes/Player';
+import { NAME_CARD } from '@shadow-network/shared/consts/NameCard';
+import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
+import { ServerPayloads } from '@shadow-network/shared/types/ServerPayloads';
 import Image from 'next/image';
 
 import PlayerCards from './my_player/MyPlayerCard';

@@ -1,5 +1,5 @@
-import { Player } from '@love-letter/shared/classes/Player';
 import BackCard from '@public/backcard.png';
+import { Player } from '@shadow-network/shared/classes/Player';
 import Image from 'next/image';
 
 type Props = {

@@ -1,9 +1,9 @@
 import RedButton from '@components/buttons/RedButton';
 import { useSocket } from '@contexts/SocketContext';
-import { Player } from '@love-letter/shared/classes/Player';
-import { CLIENT_EVENTS } from '@love-letter/shared/consts/ClientEvents';
-import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
-import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
+import { Player } from '@shadow-network/shared/classes/Player';
+import { CLIENT_EVENTS } from '@shadow-network/shared/consts/ClientEvents';
+import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
+import { ServerPayloads } from '@shadow-network/shared/types/ServerPayloads';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
