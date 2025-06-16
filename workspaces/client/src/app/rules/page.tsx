@@ -19,7 +19,7 @@ export default function Rules() {
   return (
     <>
       <Navbar />
-      <div className="flex w-full flex-col items-center gap-12 px-4 pt-24 pb-8">
+      <div className="flex w-full flex-col items-center gap-12 px-4 pt-24 pb-16">
         <h1 className="text-primary text-4xl">Règles</h1>
         <div className="container flex flex-col items-center gap-8">
           <div className="flex flex-col items-center gap-3">
