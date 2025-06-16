@@ -10,9 +10,14 @@ export type ClientSocketEvents = {
 
   // Game
   [CLIENT_EVENTS.GAME_READY]: undefined;
-  [CLIENT_EVENTS.BACK_TO_PLAYER_TURN]: undefined;
-  [CLIENT_EVENTS.CHECKING_OTHER_CARDS]: { idOtherPlayer: string };
-  [CLIENT_EVENTS.DRAW_OTHER_PLAYER_CARD]: {
-    indexCardDraw: number;
-  };
+  [CLIENT_EVENTS.GAME_PLAY_SPY]: undefined;
+  [CLIENT_EVENTS.GAME_PLAY_GUARD]: undefined;
+  [CLIENT_EVENTS.GAME_PLAY_PRIEST]: undefined;
+  [CLIENT_EVENTS.GAME_PLAY_BARON]: undefined;
+  [CLIENT_EVENTS.GAME_PLAY_HANDMAID]: undefined;
+  [CLIENT_EVENTS.GAME_PLAY_PRINCE]: undefined;
+  [CLIENT_EVENTS.GAME_PLAY_CHANCELLOR]: undefined;
+  [CLIENT_EVENTS.GAME_PLAY_KING]: undefined;
+  [CLIENT_EVENTS.GAME_PLAY_COUNTESS]: undefined;
+  [CLIENT_EVENTS.GAME_PLAY_PRINCESS]: undefined;
 };

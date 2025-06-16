@@ -25,12 +25,12 @@ export type ServerPayloads = {
     stateGame: string;
     roundNumber: number;
     players: Player[];
-    remediesToFind: number;
     playerTurn: Player | null;
-    checkedPlayerHand: Player | null;
-    cardsDisplayedRound: Card[];
-    remediesFound: number;
-    statusFinish: string;
+    playersTurnOrder: Player[];
+    deck: Card[];
+    lastPlayedCard: Card | null;
+    secondPlayedCard: Card | null;
+    scoreToReach: number;
     historyEvents: HistoryEvent[];
   };
 };
