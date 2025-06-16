@@ -8,7 +8,14 @@ export const CLIENT_EVENTS = {
 
   // Game
   GAME_READY: "client.game.ready",
-  BACK_TO_PLAYER_TURN: "client.game.back.to.player.turn",
-  CHECKING_OTHER_CARDS: "client.game.checking_other.cards",
-  DRAW_OTHER_PLAYER_CARD: "client.game.draw.other.player.card",
+  GAME_PLAY_SPY: "client.game.play.spy",
+  GAME_PLAY_GUARD: "client.game.play.guard",
+  GAME_PLAY_PRIEST: "client.game.play.priest",
+  GAME_PLAY_BARON: "client.game.play.baron",
+  GAME_PLAY_HANDMAID: "client.game.play.handmaid",
+  GAME_PLAY_PRINCE: "client.game.play.prince",
+  GAME_PLAY_CHANCELLOR: "client.game.play.chancellor",
+  GAME_PLAY_KING: "client.game.play.king",
+  GAME_PLAY_COUNTESS: "client.game.play.countess",
+  GAME_PLAY_PRINCESS: "client.game.play.princess",
 } as const;
