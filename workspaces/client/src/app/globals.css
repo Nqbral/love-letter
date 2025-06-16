@@ -2,7 +2,7 @@
 
 @theme {
   --color-text: oklch(96.7% 0.003 264.542);
-  --color-bg-navbar: #0f172c;
+  --color-bg-navbar: #19192a;
   --color-primary: oklch(87.9% 0.169 91.605);
   --color-primary-hover: oklch(76.9% 0.188 70.08);
   --color-secondary: oklch(50% 0.134 242.749);
@@ -16,14 +16,14 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background: radial-gradient(oklch(28.2% 0.091 267.935), oklch(14.5% 0 0));
+  background: radial-gradient(#1d1e33, oklch(14.5% 0 0));
   background-size: cover;
   background-attachment: fixed;
   color: var(--color-sky-50);
 }
 
 :root {
-  --toastify-color-light: #15224c;
+  --toastify-color-light: #19192a;
   --toastify-text-color-light: #fff;
 }
 
