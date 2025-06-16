@@ -3,16 +3,16 @@ import { useSocket } from '@contexts/SocketContext';
 import { Card } from '@love-letter/shared/classes/Card';
 import { CLIENT_EVENTS } from '@love-letter/shared/consts/ClientEvents';
 import { NAME_CARD } from '@love-letter/shared/consts/NameCard';
-import Baron from '@public/baron.png';
-import Chancellor from '@public/chancellor.png';
-import Countess from '@public/countess.png';
-import Guard from '@public/guard.png';
-import Handmaid from '@public/handmaid.png';
-import King from '@public/king.png';
-import Priest from '@public/priest.png';
-import Prince from '@public/prince.png';
-import Princess from '@public/princess.png';
-import Spy from '@public/spy.png';
+import MagnateImg from '@public/baron.png';
+import StrategistImg from '@public/chancellor.png';
+import DiplomatImg from '@public/countess.png';
+import SecurityAgentImg from '@public/guard.png';
+import DiscreetAssistantImg from '@public/handmaid.png';
+import DirectorOfOperationsImg from '@public/king.png';
+import InformantImg from '@public/priest.png';
+import UndercoverAgentImg from '@public/prince.png';
+import DoubleAgentImg from '@public/princess.png';
+import SecretOperatorImg from '@public/spy.png';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
 
@@ -48,35 +48,35 @@ export default function PlayerCards({
     }
 
     switch (card.nameCard) {
-      case NAME_CARD.SPY:
-        emitEvent(CLIENT_EVENTS.GAME_PLAY_SPY, undefined);
+      case NAME_CARD.SECRET_OPERATOR:
+        emitEvent(CLIENT_EVENTS.GAME_PLAY_SECRET_OPERATOR, undefined);
         break;
-      case NAME_CARD.GUARD:
-        handleCardAction(NAME_CARD.GUARD);
+      case NAME_CARD.SECURITY_AGENT:
+        handleCardAction(NAME_CARD.SECURITY_AGENT);
         break;
-      case NAME_CARD.PRIEST:
-        handleCardAction(NAME_CARD.PRIEST);
+      case NAME_CARD.INFORMANT:
+        handleCardAction(NAME_CARD.INFORMANT);
         break;
-      case NAME_CARD.BARON:
-        handleCardAction(NAME_CARD.BARON);
+      case NAME_CARD.MAGNATE:
+        handleCardAction(NAME_CARD.MAGNATE);
         break;
-      case NAME_CARD.HANDMAID:
-        emitEvent(CLIENT_EVENTS.GAME_PLAY_HANDMAID, undefined);
+      case NAME_CARD.DISCREET_ASSISTANT:
+        emitEvent(CLIENT_EVENTS.GAME_PLAY_DISCREET_ASSISTANT, undefined);
         break;
-      case NAME_CARD.PRINCE:
-        handleCardAction(NAME_CARD.PRINCE);
+      case NAME_CARD.UNDERCOVER_AGENT:
+        handleCardAction(NAME_CARD.UNDERCOVER_AGENT);
         break;
-      case NAME_CARD.CHANCELLOR:
-        emitEvent(CLIENT_EVENTS.GAME_PLAY_CHANCELLOR, undefined);
+      case NAME_CARD.STRATEGIST:
+        emitEvent(CLIENT_EVENTS.GAME_PLAY_STRATEGIST, undefined);
         break;
-      case NAME_CARD.KING:
-        handleCardAction(NAME_CARD.KING);
+      case NAME_CARD.DIRECTOR_OF_OPERATIONS:
+        handleCardAction(NAME_CARD.DIRECTOR_OF_OPERATIONS);
         break;
-      case NAME_CARD.COUNTESS:
-        emitEvent(CLIENT_EVENTS.GAME_PLAY_COUNTESS, undefined);
+      case NAME_CARD.DIPLOMAT:
+        emitEvent(CLIENT_EVENTS.GAME_PLAY_DIPLOMAT, undefined);
         break;
-      case NAME_CARD.PRINCESS:
-        handleCardAction(NAME_CARD.PRINCESS);
+      case NAME_CARD.DOUBLE_AGENT:
+        handleCardAction(NAME_CARD.DOUBLE_AGENT);
         break;
       default:
         break;
@@ -88,45 +88,45 @@ export default function PlayerCards({
       {cards?.map((card, index) => {
         let imageSrc, altText;
         switch (card.nameCard) {
-          case NAME_CARD.SPY:
-            imageSrc = Spy;
-            altText = 'spy_player_card';
+          case NAME_CARD.SECRET_OPERATOR:
+            imageSrc = SecretOperatorImg;
+            altText = 'secret_operator_player_card';
             break;
-          case NAME_CARD.GUARD:
-            imageSrc = Guard;
-            altText = 'guard_player_card';
+          case NAME_CARD.SECURITY_AGENT:
+            imageSrc = SecurityAgentImg;
+            altText = 'security_agent_player_card';
             break;
-          case NAME_CARD.PRIEST:
-            imageSrc = Priest;
-            altText = 'priest_player_card';
+          case NAME_CARD.INFORMANT:
+            imageSrc = InformantImg;
+            altText = 'informant_player_card';
             break;
-          case NAME_CARD.BARON:
-            imageSrc = Baron;
-            altText = 'baron_player_card';
+          case NAME_CARD.MAGNATE:
+            imageSrc = MagnateImg;
+            altText = 'magnate_player_card';
             break;
-          case NAME_CARD.HANDMAID:
-            imageSrc = Handmaid;
-            altText = 'handmaid_player_card';
+          case NAME_CARD.DISCREET_ASSISTANT:
+            imageSrc = DiscreetAssistantImg;
+            altText = 'discreet_assistant_player_card';
             break;
-          case NAME_CARD.PRINCE:
-            imageSrc = Prince;
-            altText = 'prince_player_card';
+          case NAME_CARD.UNDERCOVER_AGENT:
+            imageSrc = UndercoverAgentImg;
+            altText = 'undercover_player_card';
             break;
-          case NAME_CARD.CHANCELLOR:
-            imageSrc = Chancellor;
-            altText = 'chancellor_player_card';
+          case NAME_CARD.STRATEGIST:
+            imageSrc = StrategistImg;
+            altText = 'strategist_player_card';
             break;
-          case NAME_CARD.KING:
-            imageSrc = King;
-            altText = 'king_player_card';
+          case NAME_CARD.DIRECTOR_OF_OPERATIONS:
+            imageSrc = DirectorOfOperationsImg;
+            altText = 'director_of_operations_player_card';
             break;
-          case NAME_CARD.COUNTESS:
-            imageSrc = Countess;
-            altText = 'countess_player_card';
+          case NAME_CARD.DIPLOMAT:
+            imageSrc = DiplomatImg;
+            altText = 'diplomat_player_card';
             break;
-          case NAME_CARD.PRINCESS:
-            imageSrc = Princess;
-            altText = 'princess_player_card';
+          case NAME_CARD.DOUBLE_AGENT:
+            imageSrc = DoubleAgentImg;
+            altText = 'double_agent_player_card';
             break;
           default:
             return null;

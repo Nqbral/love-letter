@@ -17,10 +17,10 @@ export default function PlayerSelector({
   selectedPlayer,
 }: Props) {
   const filteredPlayers = players?.filter((p) => {
-    const hasHandmaid = p.activeCards.some(
-      (c) => c.nameCard === NAME_CARD.HANDMAID,
+    const hasDiscreetAssistant = p.activeCards.some(
+      (c) => c.nameCard === NAME_CARD.DISCREET_ASSISTANT,
     );
-    if (hasHandmaid) return false;
+    if (hasDiscreetAssistant) return false;
     if (mode === 'exceptMe' && p.userId === myPlayerId) return false;
     return true;
   });

@@ -14,7 +14,7 @@ export default function ListTileCardSelector({
   return (
     <li className="w-full">
       <button
-        className={`w-full px-4 py-2 hover:bg-neutral-700 ${selectedCard === cardName ? 'bg-neutral-900' : 'bg-neutral-800'} ${cardName == NAME_CARD.SPY && 'rounded-t-lg'} ${cardName == NAME_CARD.PRINCESS && 'rounded-b-lg'} transition-colors`}
+        className={`w-full px-4 py-2 hover:bg-neutral-700 ${selectedCard === cardName ? 'bg-neutral-900' : 'bg-neutral-800'} ${cardName == NAME_CARD.SECRET_OPERATOR && 'rounded-t-lg'} ${cardName == NAME_CARD.DOUBLE_AGENT && 'rounded-b-lg'} transition-colors`}
         onClick={() => setSelectedCard(cardName)}
       >
         {cardName} {selectedCard === cardName ? '(Sélectionné)' : ''}

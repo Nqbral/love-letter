@@ -2,16 +2,16 @@ import Navbar from '@components/navbar/Navbar';
 import { faCoins, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import BaronImg from '../../../public/baron_without_value.png';
-import ChancellorImg from '../../../public/chancellor_without_value.png';
-import CountessImg from '../../../public/countess_without_value.png';
-import GuardImg from '../../../public/guard_without_value.png';
-import HandmaidImg from '../../../public/handmaid_without_value.png';
-import KingImg from '../../../public/king_without_value.png';
-import PriestImg from '../../../public/priest_without_value.png';
-import PrinceImg from '../../../public/prince_without_value.png';
-import PrincessImg from '../../../public/princess_without_value.png';
-import SpyImg from '../../../public/spy_without_value.png';
+import MagnateImg from '../../../public/baron_without_value.png';
+import StrategistImg from '../../../public/chancellor_without_value.png';
+import DiplomatImg from '../../../public/countess_without_value.png';
+import SecurityAgentImg from '../../../public/guard_without_value.png';
+import DiscreetAssistantImg from '../../../public/handmaid_without_value.png';
+import DirectorOfOperationsImg from '../../../public/king_without_value.png';
+import InformantImg from '../../../public/priest_without_value.png';
+import UndercoverAgentImg from '../../../public/prince_without_value.png';
+import DoubleAgentImg from '../../../public/princess_without_value.png';
+import SecretOperatorImg from '../../../public/spy_without_value.png';
 import LinkButton, { TypeLinkButton } from '../components/buttons/LinkButton';
 import CardDescription from '../components/rules/CardDescription';
 
@@ -234,7 +234,7 @@ export default function Rules() {
               {/* Princesse */}
               <CardDescription
                 nameCard="Princesse"
-                img={PrincessImg}
+                img={DoubleAgentImg}
                 altimg="princess_img"
                 description={
                   <p className="text-center">
@@ -258,7 +258,7 @@ export default function Rules() {
               {/* Comtesse */}
               <CardDescription
                 nameCard="Comtesse"
-                img={CountessImg}
+                img={DiplomatImg}
                 altimg="countess_img"
                 description={
                   <p className="text-center">
@@ -286,7 +286,7 @@ export default function Rules() {
               {/* Roi */}
               <CardDescription
                 nameCard="Roi"
-                img={KingImg}
+                img={DirectorOfOperationsImg}
                 altimg="king_img"
                 description={
                   <p className="text-center">
@@ -300,7 +300,7 @@ export default function Rules() {
               {/* Chancelier */}
               <CardDescription
                 nameCard="Chancelier"
-                img={ChancellorImg}
+                img={StrategistImg}
                 altimg="chancellor_img"
                 description={
                   <p className="text-center">
@@ -324,7 +324,7 @@ export default function Rules() {
               {/* Prince */}
               <CardDescription
                 nameCard="Prince"
-                img={PrinceImg}
+                img={UndercoverAgentImg}
                 altimg="prince_img"
                 description={
                   <p className="text-center">
@@ -353,7 +353,7 @@ export default function Rules() {
               {/* Prince */}
               <CardDescription
                 nameCard="Servante"
-                img={HandmaidImg}
+                img={DiscreetAssistantImg}
                 altimg="handmaid_img"
                 description={
                   <div>
@@ -397,7 +397,7 @@ export default function Rules() {
               {/* Baron */}
               <CardDescription
                 nameCard="Baron"
-                img={BaronImg}
+                img={MagnateImg}
                 altimg="baron_img"
                 description={
                   <p className="text-center">
@@ -416,7 +416,7 @@ export default function Rules() {
               {/* Prêtre */}
               <CardDescription
                 nameCard="Prêtre"
-                img={PriestImg}
+                img={InformantImg}
                 altimg="priest_img"
                 description={
                   <p className="text-center">
@@ -430,7 +430,7 @@ export default function Rules() {
               {/* Garde */}
               <CardDescription
                 nameCard="Garde"
-                img={GuardImg}
+                img={SecurityAgentImg}
                 altimg="guard_img"
                 description={
                   <p className="text-center">
@@ -445,7 +445,7 @@ export default function Rules() {
               {/* Espionne */}
               <CardDescription
                 nameCard="Espionne"
-                img={SpyImg}
+                img={SecretOperatorImg}
                 altimg="spy_img"
                 description={
                   <p className="text-center">

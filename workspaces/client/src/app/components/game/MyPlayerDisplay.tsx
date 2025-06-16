@@ -4,8 +4,8 @@ import { Player } from '@love-letter/shared/classes/Player';
 import { NAME_CARD } from '@love-letter/shared/consts/NameCard';
 import { ServerEvents } from '@love-letter/shared/enums/ServerEvents';
 import { ServerPayloads } from '@love-letter/shared/types/ServerPayloads';
-import Handmaid from '@public/handmaid.png';
-import Spy from '@public/spy.png';
+import DiscreetAssistantImg from '@public/handmaid.png';
+import SecretOperatorImg from '@public/spy.png';
 import Image from 'next/image';
 
 import PlayerCards from './my_player/MyPlayerCard';
@@ -53,13 +53,13 @@ export default function MyPlayerDisplay({
                 <div className="h-[75px] w-12 rounded-sm border-1 border-dashed border-slate-700 sm:h-[97px] sm:w-16 md:h-[122px] md:w-20 lg:h-[142px] lg:w-24" />
               ) : (
                 myPlayer?.activeCards.map((card, index) => {
-                  if (card.nameCard == NAME_CARD.SPY) {
+                  if (card.nameCard == NAME_CARD.SECRET_OPERATOR) {
                     return (
                       <Image
                         key={'activeCards-' + myPlayer.userId + '-' + index}
                         className="w-16 sm:w-20 md:w-24"
-                        src={Spy}
-                        alt="spy"
+                        src={SecretOperatorImg}
+                        alt="secret-operator"
                       />
                     );
                   }
@@ -68,8 +68,8 @@ export default function MyPlayerDisplay({
                     <Image
                       key={'activeCards-' + myPlayer.userId + '-' + index}
                       className="w-16 sm:w-20 md:w-24"
-                      src={Handmaid}
-                      alt="handmaid"
+                      src={DiscreetAssistantImg}
+                      alt="discreet-assistant"
                     />
                   );
                 })

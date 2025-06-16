@@ -15,47 +15,47 @@ export default function CardSelector({ selectedCard, setSelectedCard }: Props) {
       </div>
       <ul className="flex w-64 flex-col items-center text-xs sm:text-sm">
         <ListTileCardSelector
-          cardName={NAME_CARD.SPY}
+          cardName={NAME_CARD.SECRET_OPERATOR}
           selectedCard={selectedCard}
           setSelectedCard={setSelectedCard}
         />
         <ListTileCardSelector
-          cardName={NAME_CARD.PRIEST}
+          cardName={NAME_CARD.INFORMANT}
           selectedCard={selectedCard}
           setSelectedCard={setSelectedCard}
         />
         <ListTileCardSelector
-          cardName={NAME_CARD.BARON}
+          cardName={NAME_CARD.MAGNATE}
           selectedCard={selectedCard}
           setSelectedCard={setSelectedCard}
         />
         <ListTileCardSelector
-          cardName={NAME_CARD.HANDMAID}
+          cardName={NAME_CARD.DISCREET_ASSISTANT}
           selectedCard={selectedCard}
           setSelectedCard={setSelectedCard}
         />
         <ListTileCardSelector
-          cardName={NAME_CARD.PRINCE}
+          cardName={NAME_CARD.UNDERCOVER_AGENT}
           selectedCard={selectedCard}
           setSelectedCard={setSelectedCard}
         />
         <ListTileCardSelector
-          cardName={NAME_CARD.CHANCELLOR}
+          cardName={NAME_CARD.STRATEGIST}
           selectedCard={selectedCard}
           setSelectedCard={setSelectedCard}
         />
         <ListTileCardSelector
-          cardName={NAME_CARD.KING}
+          cardName={NAME_CARD.DIRECTOR_OF_OPERATIONS}
           selectedCard={selectedCard}
           setSelectedCard={setSelectedCard}
         />
         <ListTileCardSelector
-          cardName={NAME_CARD.COUNTESS}
+          cardName={NAME_CARD.DIPLOMAT}
           selectedCard={selectedCard}
           setSelectedCard={setSelectedCard}
         />
         <ListTileCardSelector
-          cardName={NAME_CARD.PRINCESS}
+          cardName={NAME_CARD.DOUBLE_AGENT}
           selectedCard={selectedCard}
           setSelectedCard={setSelectedCard}
         />

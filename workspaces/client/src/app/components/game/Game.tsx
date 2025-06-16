@@ -1,7 +1,7 @@
 import ModalFinishedByLeaving from '@components/modal/ModalFinishedByLeaving';
 import ModalFinishedRound from '@components/modal/ModalFinishedRound';
 import ModalPauseDisconnect from '@components/modal/ModalPauseDisconnect';
-import ModalPlayGuard from '@components/modal/ModalPlayGuard';
+import ModalPlaySecurityAgent from '@components/modal/ModalPlaySecurityAgent';
 import ModalRecapRound from '@components/modal/ModalRecapRound';
 import { useSocket } from '@contexts/SocketContext';
 import { Player } from '@love-letter/shared/classes/Player';
@@ -115,12 +115,12 @@ export default function Game({ lobbyState, gameState }: Props) {
         open={
           lobbyState?.stateLobby != LOBBY_STATES.GAME_PAUSED &&
           lobbyState?.stateLobby != LOBBY_STATES.GAME_FINISHED_BY_LEAVING &&
-          modalTypeCard == NAME_CARD.GUARD
+          modalTypeCard == NAME_CARD.SECURITY_AGENT
         }
         onClose={() => setModalTypeCard(null)}
-        aria-labelledby="modal-guard"
+        aria-labelledby="modal-security-agent"
       >
-        <ModalPlayGuard
+        <ModalPlaySecurityAgent
           setModalTypeCard={setModalTypeCard}
           gameState={gameState}
           myPlayer={myPlayer}

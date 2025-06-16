@@ -230,12 +230,12 @@ export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   @UseGuards(JwtWsGuard)
-  @SubscribeMessage(CLIENT_EVENTS.GAME_READY)
-  onPlaySpy(@ConnectedSocket() client: AuthenticatedSocket) {
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_SECRET_OPERATOR)
+  onPlaySecretOperator(@ConnectedSocket() client: AuthenticatedSocket) {
     const lobby = client.lobby;
 
     if (!lobby) throw new WsException('Lobby introuvable');
 
-    lobby.instance.playCard(client, NAME_CARD.SPY, undefined);
+    lobby.instance.playCard(client, NAME_CARD.SECRET_OPERATOR, undefined);
   }
 }

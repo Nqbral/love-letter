@@ -4,16 +4,16 @@ import { WsException } from '@nestjs/websockets';
 import { Card } from '@shared/classes/Card';
 import { HistoryEvent } from '@shared/classes/HistoryEvent';
 import { Player } from '@shared/classes/Player';
-import { BaronCard } from '@shared/classes/cards/BaronCard';
-import { ChancellorCard } from '@shared/classes/cards/ChancellorCard';
-import { CountessCard } from '@shared/classes/cards/CountessCard';
-import { GuardCard } from '@shared/classes/cards/GuardCard';
-import { HandmaidCard } from '@shared/classes/cards/HandmaidCard';
-import { KingCard } from '@shared/classes/cards/KingCard';
-import { PriestCard } from '@shared/classes/cards/PriestCard';
-import { PrinceCard } from '@shared/classes/cards/PrinceCard';
-import { PrincessCard } from '@shared/classes/cards/PrincessCard';
-import { SpyCard } from '@shared/classes/cards/SpyCard';
+import { DiplomatCard } from '@shared/classes/cards/DiplomatCard';
+import { DirectorOfOperationsCard } from '@shared/classes/cards/DirectorOfOperationsCard';
+import { DiscreetAssistantCard } from '@shared/classes/cards/DiscreetAssistantCard';
+import { DoubleAgentCard } from '@shared/classes/cards/DoubleAgentCard';
+import { InformantCard } from '@shared/classes/cards/InformantCard';
+import { MagnateCard } from '@shared/classes/cards/MagnateCard';
+import { SecretOperatorCard } from '@shared/classes/cards/SecretOperatorCard';
+import { SecurityAgentCard } from '@shared/classes/cards/SecurityAgentCard';
+import { StrategistCard } from '@shared/classes/cards/StrategistCard';
+import { UndercoverAgentCard } from '@shared/classes/cards/UndercoverAgentCard';
 import { GAME_STATES } from '@shared/consts/GameStates';
 import { LOBBY_STATES } from '@shared/consts/LobbyStates';
 import { NAME_CARD } from '@shared/consts/NameCard';
@@ -103,21 +103,21 @@ export class Instance {
   private initCards(): void {
     this.deck = [];
 
-    this.deck.push(new PrincessCard());
-    this.deck.push(new CountessCard());
-    this.deck.push(new KingCard());
+    this.deck.push(new DoubleAgentCard());
+    this.deck.push(new DiplomatCard());
+    this.deck.push(new DirectorOfOperationsCard());
 
     for (let index = 0; index < 2; index++) {
-      this.deck.push(new ChancellorCard());
-      this.deck.push(new PrinceCard());
-      this.deck.push(new HandmaidCard());
-      this.deck.push(new BaronCard());
-      this.deck.push(new PriestCard());
-      this.deck.push(new SpyCard());
+      this.deck.push(new StrategistCard());
+      this.deck.push(new UndercoverAgentCard());
+      this.deck.push(new DiscreetAssistantCard());
+      this.deck.push(new MagnateCard());
+      this.deck.push(new InformantCard());
+      this.deck.push(new SecretOperatorCard());
     }
 
     for (let index = 0; index < 6; index++) {
-      this.deck.push(new GuardCard());
+      this.deck.push(new SecurityAgentCard());
     }
 
     this.deck = this.shuffle(this.deck);
@@ -233,16 +233,16 @@ export class Instance {
     }
 
     switch (cardName) {
-      case NAME_CARD.SPY:
-        this.playSpy(player);
+      case NAME_CARD.SECRET_OPERATOR:
+        this.playSecretOperator(player);
         break;
       default:
         throw new WsException('Type of card not handled');
     }
   }
 
-  public playSpy(player: Player): void {
-    player.activeCards.push(new SpyCard());
+  public playSecretOperator(player: Player): void {
+    player.activeCards.push(new SecretOperatorCard());
   }
 
   public dispatchGameState(): void {
