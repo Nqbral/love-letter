@@ -2,7 +2,7 @@ export const NAME_CARD = {
   DOUBLE_AGENT: "Double Agent",
   DIPLOMAT: "Diplomate",
   DIRECTOR_OF_OPERATIONS: "Directeur des Opérations",
-  STRATEGIST: "Stratege",
+  STRATEGIST: "Stratège",
   UNDERCOVER_AGENT: "Agent Infiltré",
   DISCREET_ASSISTANT: "Assistante Discrète",
   MAGNATE: "Magnat",

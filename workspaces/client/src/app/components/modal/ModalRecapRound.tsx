@@ -5,7 +5,7 @@ import { CLIENT_EVENTS } from '@shadow-network/shared/consts/ClientEvents';
 import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
 import { ServerPayloads } from '@shadow-network/shared/types/ServerPayloads';
 import { useEffect, useState } from 'react';
-import { Hearts } from 'react-loader-spinner';
+import { MagnifyingGlass } from 'react-loader-spinner';
 
 import ModalTemplate from './ModalTemplate';
 
@@ -73,10 +73,11 @@ export default function ModalRecapRound({ player, gameState }: Props) {
           })}
         </div>
         {player?.ready ? (
-          <Hearts
+          <MagnifyingGlass
             visible={true}
-            height="40"
-            width="40"
+            height="80"
+            width="80"
+            glassColor="#ffffff00"
             color="oklch(87.9% 0.169 91.605)"
             ariaLabel="three-dots-loading"
           />

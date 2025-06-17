@@ -1,4 +1,4 @@
-import { faCoins } from '@fortawesome/free-solid-svg-icons';
+import { faFolderClosed } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DiscreetAssistantImg from '@public/handmaid.png';
 import SecretOperatorImg from '@public/spy.png';
@@ -31,7 +31,10 @@ export default function MyPlayerDisplay({
     <div className="flex flex-col items-center gap-2 border-1 border-slate-700 px-8 py-4 sm:gap-4">
       <div className="flex flex-row items-center gap-2 text-sm sm:text-base">
         <div>{myPlayer?.score}</div>
-        <FontAwesomeIcon icon={faCoins} color="oklch(92.4% 0.12 95.746)" />
+        <FontAwesomeIcon
+          icon={faFolderClosed}
+          color="oklch(92.4% 0.12 95.746)"
+        />
         <div className={classesPlayer}>{myPlayer?.userName}</div>
       </div>
       <div className="flex flex-row gap-6 text-xs sm:gap-8 sm:text-sm md:gap-12 md:text-base">

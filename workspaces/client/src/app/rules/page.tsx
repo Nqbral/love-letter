@@ -1,17 +1,17 @@
 import Navbar from '@components/navbar/Navbar';
-import { faCoins, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faFolderClosed, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import MagnateImg from '../../../public/baron_without_value.png';
 import StrategistImg from '../../../public/chancellor_without_value.png';
 import DiplomatImg from '../../../public/countess_without_value.png';
-import SecurityAgentImg from '../../../public/guard_without_value.png';
 import DiscreetAssistantImg from '../../../public/handmaid_without_value.png';
+import InformantImg from '../../../public/informant_without_value.png';
 import DirectorOfOperationsImg from '../../../public/king_without_value.png';
-import InformantImg from '../../../public/priest_without_value.png';
 import UndercoverAgentImg from '../../../public/prince_without_value.png';
 import DoubleAgentImg from '../../../public/princess_without_value.png';
-import SecretOperatorImg from '../../../public/spy_without_value.png';
+import SecretOperatorImg from '../../../public/secret_operator_without_value.png';
+import SecurityAgentImg from '../../../public/security_guard_without_value.png';
 import LinkButton, { TypeLinkButton } from '../components/buttons/LinkButton';
 import CardDescription from '../components/rules/CardDescription';
 
@@ -191,7 +191,7 @@ export default function Rules() {
                 <tr>
                   <td className="min-w-12 border-2 border-slate-700 px-3 py-2">
                     <FontAwesomeIcon
-                      icon={faCoins}
+                      icon={faFolderClosed}
                       color="oklch(92.4% 0.12 95.746)"
                     />
                   </td>
@@ -440,8 +440,8 @@ export default function Rules() {
                 description={
                   <p className="text-center">
                     Choisissez un autre joueur et nommez un personnage autre que
-                    le Agent de Sécurité. Si le joueur choisi a cette carte en
-                    main, il quitte la manche.
+                    l&apos;Agent de Sécurité. Si le joueur choisi a cette carte
+                    en main, il quitte la manche.
                   </p>
                 }
                 value={1}
