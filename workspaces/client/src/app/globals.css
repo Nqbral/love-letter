@@ -9,6 +9,8 @@
   --color-secondary-hover: oklch(58.8% 0.158 241.966);
   --color-tertiary: oklch(76.5% 0.177 163.223);
   --color-tertiary-hover: oklch(59.6% 0.145 163.225);
+  --color-odd-list-tile: #19192a;
+  --color-even-list-tile: #12131d;
 }
 
 html {
