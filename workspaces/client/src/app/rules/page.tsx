@@ -1,6 +1,7 @@
 import Navbar from '@components/navbar/Navbar';
 import { faFolderClosed, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Suspense } from 'react';
 
 import DiplomatImg from '../../../public/diplomat_without_value.png';
 import DirectorOfOperationsImg from '../../../public/director_of_operations_without_value.png';
@@ -18,7 +19,9 @@ import CardDescription from '../components/rules/CardDescription';
 export default function Rules() {
   return (
     <>
-      <Navbar />
+      <Suspense>
+        <Navbar />
+      </Suspense>
       <div className="flex w-full flex-col items-center gap-12 px-4 pt-24 pb-16">
         <h1 className="text-primary text-4xl">Règles</h1>
         <div className="container flex flex-col items-center gap-8">
