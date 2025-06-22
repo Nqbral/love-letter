@@ -23,7 +23,15 @@ import { NAME_CARD } from '@shared/consts/NameCard';
 import { ServerEvents } from '@shared/enums/ServerEvents';
 import { Server } from 'socket.io';
 
-import { LobbyJoinDto } from './lobby/dtos';
+import {
+  LobbyJoinDto,
+  PlayDirectorOfOperationsDto,
+  PlayInformantDto,
+  PlaySecurityAgentDto,
+  PlayStrategistPartTwoDto,
+  PlayUndercoverAgentDto,
+  PlayWithoutEffectDto,
+} from './lobby/dtos';
 
 @WebSocketGateway()
 export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
@@ -226,7 +234,20 @@ export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
     if (!lobby) throw new WsException('Lobby introuvable');
 
-    // lobby.instance.onGameReady(client);
+    lobby.instance.onGameReady(client);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_WITHOUT_EFFECT)
+  onPlayCardWithoutEffect(
+    @ConnectedSocket() client: AuthenticatedSocket,
+    @MessageBody() data: PlayWithoutEffectDto,
+  ) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCardWithoutEffect(client, data.cardPlayed);
   }
 
   @UseGuards(JwtWsGuard)
@@ -237,5 +258,123 @@ export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
     if (!lobby) throw new WsException('Lobby introuvable');
 
     lobby.instance.playCard(client, NAME_CARD.SECRET_OPERATOR, undefined);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_SECURITY_AGENT)
+  onPlaySecurityAgent(
+    @ConnectedSocket() client: AuthenticatedSocket,
+    @MessageBody() data: PlaySecurityAgentDto,
+  ) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCard(client, NAME_CARD.SECURITY_AGENT, data);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_INFORMANT)
+  onPlayInformant(
+    @ConnectedSocket() client: AuthenticatedSocket,
+    @MessageBody() data: PlayInformantDto,
+  ) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCard(client, NAME_CARD.INFORMANT, data);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_MAGNATE)
+  onPlayMagnate(
+    @ConnectedSocket() client: AuthenticatedSocket,
+    @MessageBody() data: PlayInformantDto,
+  ) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCard(client, NAME_CARD.MAGNATE, data);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_DISCREET_ASSISTANT)
+  onPlayDiscreetAssistant(@ConnectedSocket() client: AuthenticatedSocket) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCard(client, NAME_CARD.DISCREET_ASSISTANT, undefined);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_UNDERCOVER_AGENT)
+  onPlayUndercoverAgent(
+    @ConnectedSocket() client: AuthenticatedSocket,
+    @MessageBody() data: PlayUndercoverAgentDto,
+  ) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCard(client, NAME_CARD.UNDERCOVER_AGENT, data);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_STRATEGIST)
+  onPlayStrategist(@ConnectedSocket() client: AuthenticatedSocket) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCard(client, NAME_CARD.STRATEGIST, undefined);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_STRATEGIST_PART_TWO)
+  onPlayStrategistPartTwo(
+    @ConnectedSocket() client: AuthenticatedSocket,
+    @MessageBody() data: PlayStrategistPartTwoDto,
+  ) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playChancellorPartTwo(client, data);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_DIRECTOR_OF_OPERATIONS)
+  onPlayDirectorOfOperations(
+    @ConnectedSocket() client: AuthenticatedSocket,
+    @MessageBody() data: PlayDirectorOfOperationsDto,
+  ) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCard(client, NAME_CARD.DIRECTOR_OF_OPERATIONS, data);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_DIPLOMAT)
+  onPlayDiplomat(@ConnectedSocket() client: AuthenticatedSocket) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCard(client, NAME_CARD.DIPLOMAT, undefined);
+  }
+
+  @UseGuards(JwtWsGuard)
+  @SubscribeMessage(CLIENT_EVENTS.GAME_PLAY_DOUBLE_AGENT)
+  onPlayDoubleAgent(@ConnectedSocket() client: AuthenticatedSocket) {
+    const lobby = client.lobby;
+
+    if (!lobby) throw new WsException('Lobby introuvable');
+
+    lobby.instance.playCard(client, NAME_CARD.DOUBLE_AGENT, undefined);
   }
 }

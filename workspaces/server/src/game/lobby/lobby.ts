@@ -118,6 +118,7 @@ export class Lobby {
     this.stateBeforePause = this.stateLobby;
     this.stateLobby = LOBBY_STATES.GAME_PAUSED;
 
+    this.instance.clearTimeout();
     this.dispatchLobbyState();
   }
 
@@ -129,6 +130,7 @@ export class Lobby {
       this.stateLobby == LOBBY_STATES.GAME_PAUSED
     ) {
       this.stateLobby = this.stateBeforePause;
+      this.instance.launchTimeoutContinueGame();
       this.stateBeforePause = '';
     }
   }
