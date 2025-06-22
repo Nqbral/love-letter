@@ -2,6 +2,8 @@ import { ServerEvents } from "../enums/ServerEvents";
 import { Player } from "../classes/Player";
 import { Card } from "../classes/Card";
 import { HistoryEvent } from "../classes/HistoryEvent";
+import { EventDescription, EventDescriptionKey } from "./EventDescription";
+import { RoundRecap } from "../classes/RoundRecap";
 
 export type ServerPayloads = {
   [ServerEvents.LobbyCreate]: {
@@ -28,9 +30,12 @@ export type ServerPayloads = {
     playerTurn: Player | null;
     playersTurnOrder: Player[];
     deck: Card[];
-    lastPlayedCard: Card | null;
-    secondPlayedCard: Card | null;
+    lastPlayedCard: string;
+    secondPlayedCard: string;
     scoreToReach: number;
     historyEvents: HistoryEvent[];
+    eventDescription: EventDescription[EventDescriptionKey];
+    eventDescriptionKey: EventDescriptionKey;
+    roundRecap: RoundRecap | null;
   };
 };
