@@ -1,5 +1,5 @@
 export const NAME_CARD = {
-  DOUBLE_AGENT: "Double Agent",
+  DOUBLE_AGENT: "Agent Double",
   DIPLOMAT: "Diplomate",
   DIRECTOR_OF_OPERATIONS: "Directeur des Opérations",
   STRATEGIST: "Stratège",
