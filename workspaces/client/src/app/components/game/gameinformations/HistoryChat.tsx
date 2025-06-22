@@ -16,6 +16,7 @@ export default function HistoryChat({ gameState }: Props) {
   useEffect(() => {
     if (gameState != null) {
       setHistoryEvents(gameState.historyEvents);
+      console.log(gameState.historyEvents);
     }
   }, [gameState]);
 
@@ -24,15 +25,17 @@ export default function HistoryChat({ gameState }: Props) {
   }, [historyEvents]);
 
   return (
-    <div className="bg-bg-navbar flex h-full min-h-[250px] w-72 flex-col overflow-hidden rounded-lg shadow-sm shadow-neutral-950">
+    <div className="bg-bg-navbar flex h-full max-h-[720px] min-h-[250px] w-72 flex-col overflow-hidden rounded-lg shadow-sm shadow-neutral-950">
       <div className="px-4 pt-4 font-bold">Historique de la partie</div>
       <hr className="my-2" />
       <ul className="custom-scrollbar h-full overflow-y-auto text-sm">
         {historyEvents.map((historyEvent, index) => (
-          <HistoryChatListTile
-            event={historyEvent}
+          <li
+            className="odd:bg-odd-list-tile even:bg-even-list-tile px-4 py-2 text-xs sm:text-sm md:text-base"
             key={`history-event-${index}`}
-          />
+          >
+            <HistoryChatListTile event={historyEvent} />
+          </li>
         ))}
         <div ref={bottomRef} />
       </ul>

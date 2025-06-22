@@ -1,7 +1,7 @@
 import { faFolderClosed } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import DiscreetAssistantImg from '@public/handmaid.png';
-import SecretOperatorImg from '@public/spy.png';
+import DiscreetAssistantImg from '@public/discreet_assistant.png';
+import SecretOperatorImg from '@public/secret_operator.png';
 import { Player } from '@shadow-network/shared/classes/Player';
 import { NAME_CARD } from '@shadow-network/shared/consts/NameCard';
 import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
@@ -37,54 +37,58 @@ export default function MyPlayerDisplay({
         />
         <div className={classesPlayer}>{myPlayer?.userName}</div>
       </div>
-      <div className="flex flex-row gap-6 text-xs sm:gap-8 sm:text-sm md:gap-12 md:text-base">
-        <div className="flex flex-col items-center gap-2">
-          <div className="">Main</div>
-          <div className="flex flex-row gap-2">
-            <PlayerCards
-              isPlayerTurn={gameState?.playerTurn?.userId == myPlayer?.userId}
-              cards={myPlayer?.hand}
-              handleCardAction={handleCardAction}
-            />
-          </div>
-        </div>
-        {myPlayer?.alive ? (
-          <div className="flex flex-col items-center gap-2">
-            <div className="w-full text-center">Carte(s) active(s)</div>
-            <div className="flex flex-row gap-2">
-              {myPlayer?.activeCards.length == 0 ? (
-                <div className="h-[75px] w-12 rounded-sm border-1 border-dashed border-slate-700 sm:h-[97px] sm:w-16 md:h-[122px] md:w-20 lg:h-[142px] lg:w-24" />
-              ) : (
-                myPlayer?.activeCards.map((card, index) => {
-                  if (card.nameCard == NAME_CARD.SECRET_OPERATOR) {
+      {myPlayer?.alive ? (
+        <>
+          <div className="flex flex-row gap-6 text-xs sm:gap-8 sm:text-sm md:gap-12 md:text-base">
+            <div className="flex flex-col items-center gap-2">
+              <div className="">Main</div>
+              <div className="flex flex-row gap-2">
+                <PlayerCards
+                  isPlayerTurn={
+                    gameState?.playerTurn?.userId == myPlayer?.userId
+                  }
+                  cards={myPlayer?.hand}
+                  handleCardAction={handleCardAction}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-full text-center">Carte(s) active(s)</div>
+              <div className="flex flex-row gap-2">
+                {myPlayer?.activeCards.length == 0 ? (
+                  <div className="h-[75px] w-12 rounded-sm border-1 border-dashed border-slate-700 sm:h-[97px] sm:w-16 md:h-[122px] md:w-20 lg:h-[142px] lg:w-24" />
+                ) : (
+                  myPlayer?.activeCards.map((card, index) => {
+                    if (card.nameCard == NAME_CARD.SECRET_OPERATOR) {
+                      return (
+                        <Image
+                          key={'activeCards-' + myPlayer.userId + '-' + index}
+                          className="w-12 sm:w-16 md:w-20 lg:w-24"
+                          src={SecretOperatorImg}
+                          alt="secret-operator"
+                        />
+                      );
+                    }
+
                     return (
                       <Image
                         key={'activeCards-' + myPlayer.userId + '-' + index}
-                        className="w-16 sm:w-20 md:w-24"
-                        src={SecretOperatorImg}
-                        alt="secret-operator"
+                        className="w-12 sm:w-16 md:w-20 lg:w-24"
+                        src={DiscreetAssistantImg}
+                        alt="discreet-assistant"
                       />
                     );
-                  }
-
-                  return (
-                    <Image
-                      key={'activeCards-' + myPlayer.userId + '-' + index}
-                      className="w-16 sm:w-20 md:w-24"
-                      src={DiscreetAssistantImg}
-                      alt="discreet-assistant"
-                    />
-                  );
-                })
-              )}
+                  })
+                )}
+              </div>
             </div>
           </div>
-        ) : (
-          <div className="text-center text-xs sm:text-sm md:text-base">
-            Éliminé
-          </div>
-        )}
-      </div>
+        </>
+      ) : (
+        <div className="text-center text-xs font-bold sm:text-sm md:text-base">
+          Éliminé
+        </div>
+      )}
     </div>
   );
 }

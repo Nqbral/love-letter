@@ -1,15 +1,15 @@
 import CustomNotification from '@components/notifications/CustomNotification';
 import { useSocket } from '@contexts/SocketContext';
-import MagnateImg from '@public/baron.png';
-import StrategistImg from '@public/chancellor.png';
-import DiplomatImg from '@public/countess.png';
-import SecurityAgentImg from '@public/guard.png';
-import DiscreetAssistantImg from '@public/handmaid.png';
-import DirectorOfOperationsImg from '@public/king.png';
-import InformantImg from '@public/priest.png';
-import UndercoverAgentImg from '@public/prince.png';
-import DoubleAgentImg from '@public/princess.png';
-import SecretOperatorImg from '@public/spy.png';
+import DiplomatImg from '@public/diplomat.png';
+import DirectorOfOperationsImg from '@public/director_of_operations.png';
+import DiscreetAssistantImg from '@public/discreet_assistant.png';
+import DoubleAgentImg from '@public/double_agent.png';
+import InformantImg from '@public/informant.png';
+import MagnateImg from '@public/magnate.png';
+import SecretOperatorImg from '@public/secret_operator.png';
+import SecurityAgentImg from '@public/security_guard.png';
+import StrategistImg from '@public/strategist.png';
+import UndercoverAgentImg from '@public/undercover_agent.png';
 import { Card } from '@shadow-network/shared/classes/Card';
 import { CLIENT_EVENTS } from '@shadow-network/shared/consts/ClientEvents';
 import { NAME_CARD } from '@shadow-network/shared/consts/NameCard';
@@ -64,12 +64,20 @@ export default function PlayerCards({
         emitEvent(CLIENT_EVENTS.GAME_PLAY_DISCREET_ASSISTANT, undefined);
         break;
       case NAME_CARD.UNDERCOVER_AGENT:
+        if (checkThereIsDiplomate()) {
+          toastCannotPlayerUndercover();
+          return;
+        }
         handleCardAction(NAME_CARD.UNDERCOVER_AGENT);
         break;
       case NAME_CARD.STRATEGIST:
         emitEvent(CLIENT_EVENTS.GAME_PLAY_STRATEGIST, undefined);
         break;
       case NAME_CARD.DIRECTOR_OF_OPERATIONS:
+        if (checkThereIsDiplomate()) {
+          toastCannotPlayerDirector();
+          return;
+        }
         handleCardAction(NAME_CARD.DIRECTOR_OF_OPERATIONS);
         break;
       case NAME_CARD.DIPLOMAT:
@@ -81,6 +89,46 @@ export default function PlayerCards({
       default:
         break;
     }
+  };
+
+  const checkThereIsDiplomate = () => {
+    return (
+      cards?.findIndex((card) => {
+        return card.nameCard === NAME_CARD.DIPLOMAT;
+      }) != -1
+    );
+  };
+
+  const toastCannotPlayerUndercover = () => {
+    toast(CustomNotification, {
+      data: {
+        title: 'Erreur',
+        content:
+          "Vous ne pouvez pas jouer l'Agent Infiltré si vous possédez la Diplomate.",
+      },
+      hideProgressBar: true,
+      closeButton: false,
+      style: {
+        width: 280,
+      },
+    });
+    return;
+  };
+
+  const toastCannotPlayerDirector = () => {
+    toast(CustomNotification, {
+      data: {
+        title: 'Erreur',
+        content:
+          'Vous ne pouvez pas jouer le Directeur des Opérations si vous possédez la Diplomate.',
+      },
+      hideProgressBar: true,
+      closeButton: false,
+      style: {
+        width: 280,
+      },
+    });
+    return;
   };
 
   return (
@@ -135,8 +183,8 @@ export default function PlayerCards({
           <TooltipDescription
             key={`my_player_card_${index}`}
             nameCard={card.nameCard}
+            nbExamples={card.nbCards}
             value={card.value}
-            nbCards={card.nbCards}
             description={card.description}
           >
             <div

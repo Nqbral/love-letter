@@ -10,7 +10,7 @@ type Props = {
 export default function CardSelector({ selectedCard, setSelectedCard }: Props) {
   return (
     <div className="flex flex-col items-center gap-3">
-      <div className="text-center text-sm sm:text-base">
+      <div className="text-center text-xs sm:text-sm md:text-base">
         Veuillez sélectionner une carte.
       </div>
       <ul className="flex w-64 flex-col items-center text-xs sm:text-sm">

@@ -2,6 +2,7 @@ import { Player } from '@shadow-network/shared/classes/Player';
 import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
 import { ServerPayloads } from '@shadow-network/shared/types/ServerPayloads';
 
+import GameInformationsButtons from './gameinformations/GameInformationsButtons';
 import HistoryChat from './gameinformations/HistoryChat';
 import RoundInformations from './gameinformations/RoundInformations';
 
@@ -17,6 +18,7 @@ export default function GameInformations({ player, gameState }: Props) {
         <RoundInformations gameState={gameState} player={player} />
       </div>
       <HistoryChat gameState={gameState} />
+      <GameInformationsButtons />
     </div>
   );
 }

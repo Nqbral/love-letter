@@ -5,6 +5,7 @@ import { useSocket } from '@contexts/SocketContext';
 import { Listener } from '@lib/SocketManager';
 import { CLIENT_EVENTS } from '@shadow-network/shared/consts/ClientEvents';
 import { LOBBY_STATES } from '@shadow-network/shared/consts/LobbyStates';
+import { EventDescriptonNames } from '@shadow-network/shared/enums/EventDescriptionNames';
 import { ServerEvents } from '@shadow-network/shared/enums/ServerEvents';
 import { ServerPayloads } from '@shadow-network/shared/types/ServerPayloads';
 import { useSearchParams } from 'next/navigation';
@@ -43,10 +44,13 @@ export default function GameManager() {
     playerTurn: null,
     playersTurnOrder: [],
     deck: [],
-    lastPlayedCard: null,
-    secondPlayedCard: null,
+    lastPlayedCard: '',
+    secondPlayedCard: '',
     scoreToReach: 0,
     historyEvents: [],
+    eventDescription: undefined,
+    eventDescriptionKey: EventDescriptonNames.None,
+    roundRecap: null,
   });
 
   useEffect(() => {

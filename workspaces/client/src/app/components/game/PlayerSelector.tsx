@@ -22,15 +22,15 @@ export default function PlayerSelector({
     );
     if (hasDiscreetAssistant) return false;
     if (mode === 'exceptMe' && p.userId === myPlayerId) return false;
-    return true;
+    return p.alive;
   });
 
   return (
     <div className="flex flex-col items-center gap-3">
-      <div className="text-center text-sm sm:text-base">
+      <div className="text-center text-xs sm:text-sm md:text-base">
         Veuillez sélectionner un joueur.
       </div>
-      <ul className="flex w-64 flex-col items-center text-xs sm:text-sm">
+      <ul className="flex w-64 flex-col items-center text-xs sm:text-sm md:text-base">
         {filteredPlayers?.map((player, index) => (
           <li key={player.userId} className="w-full">
             <button
