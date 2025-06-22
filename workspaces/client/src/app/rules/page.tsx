@@ -2,16 +2,16 @@ import Navbar from '@components/navbar/Navbar';
 import { faFolderClosed, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import MagnateImg from '../../../public/baron_without_value.png';
-import StrategistImg from '../../../public/chancellor_without_value.png';
-import DiplomatImg from '../../../public/countess_without_value.png';
-import DiscreetAssistantImg from '../../../public/handmaid_without_value.png';
+import DiplomatImg from '../../../public/diplomat_without_value.png';
+import DirectorOfOperationsImg from '../../../public/director_of_operations_without_value.png';
+import DiscreetAssistantImg from '../../../public/discreet_assistant_without_value.png';
+import DoubleAgentImg from '../../../public/double_agent_without_value.png';
 import InformantImg from '../../../public/informant_without_value.png';
-import DirectorOfOperationsImg from '../../../public/king_without_value.png';
-import UndercoverAgentImg from '../../../public/prince_without_value.png';
-import DoubleAgentImg from '../../../public/princess_without_value.png';
+import MagnateImg from '../../../public/magnate_without_value.png';
 import SecretOperatorImg from '../../../public/secret_operator_without_value.png';
 import SecurityAgentImg from '../../../public/security_guard_without_value.png';
+import StrategistImg from '../../../public/strategist_without_value.png';
+import UndercoverAgentImg from '../../../public/undercover_agent_without_value.png';
 import LinkButton, { TypeLinkButton } from '../components/buttons/LinkButton';
 import CardDescription from '../components/rules/CardDescription';
 
@@ -228,12 +228,12 @@ export default function Rules() {
             <div className="flex flex-col items-center gap-8">
               {/* Double Agent */}
               <CardDescription
-                nameCard="Double Agent"
+                nameCard="Agent Double"
                 img={DoubleAgentImg}
                 altimg="princess_img"
                 description={
                   <p className="text-center">
-                    Le Double Agent est la carte avec{' '}
+                    L&apos;Agent Double est la carte avec{' '}
                     <span className="font-bold">
                       la valeur la plus élevée du jeu
                     </span>
