@@ -5,7 +5,7 @@ export class Player {
   public ready: boolean = false;
   public hand: Card[] = [];
   public activeCards: Card[] = [];
-  public alive: boolean;
+  public alive: boolean = true;
   public score: number = 0;
 
   constructor(
