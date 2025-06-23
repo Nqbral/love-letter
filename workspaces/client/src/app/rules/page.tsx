@@ -1,3 +1,4 @@
+import HeadDescription from '@components/head/HeadDescription';
 import Navbar from '@components/navbar/Navbar';
 import { faFolderClosed, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,6 +20,7 @@ import CardDescription from '../components/rules/CardDescription';
 export default function Rules() {
   return (
     <>
+      <HeadDescription />
       <LoadingAuth>
         <Navbar />
         <div className="flex w-full flex-col items-center gap-12 px-4 pt-24 pb-16">

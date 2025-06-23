@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://shadow-network.nqbral-games.fr
+
+# Sitemaps
+Sitemap: https://shadow-network.nqbral-games.fr/sitemap.xml
