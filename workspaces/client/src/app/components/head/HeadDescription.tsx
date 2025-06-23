@@ -14,7 +14,7 @@ export default function HeadDescription() {
       />
       <meta
         property="og:title"
-        content="Last Hope - Jeu de stratégie multijoueur"
+        content="Shadow Network - Jeu de stratégie multijoueur"
       />
       <meta
         property="og:description"
