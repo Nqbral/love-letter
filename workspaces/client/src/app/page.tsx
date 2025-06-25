@@ -4,9 +4,45 @@ import Footer from '@components/footer/Footer';
 import Navbar from '@components/navbar/Navbar';
 import LobbyReconnectToast from '@components/toast/LobbyReconnectToast';
 import ShadowNetworkLogo from '@public/shadow_network_logo.png';
+import { Metadata } from 'next';
 import Image from 'next/image';
 
 import LoadingAuth from './layout/LoadingAuth';
+
+export const metadata: Metadata = {
+  title: 'Shadow Network – Jeu d’espionnage en ligne',
+  description:
+    'Jouez à Shadow Network, le jeu d’espionnage stratégique. Affrontez d’autres agents, élaborez vos stratégies et tentez de transmettre votre message secret au Président. Accessible gratuitement sans installation sur Nqbral Games.',
+  keywords:
+    'Shadow Network, jeu d’espionnage, jeu de société en ligne, stratégie, bluff, rôles cachés, Love Letter, multijoueur, Nqbral Games',
+  openGraph: {
+    title: 'Shadow Network – Jeu d’espionnage en ligne',
+    description:
+      'Découvrez Shadow Network, le jeu d’espionnage multijoueur où chaque agent tente de transmettre un message secret au Président. Rejoignez la partie sur Nqbral Games !',
+    url: 'https://shadow-network.nqbral-games.fr/',
+    images: [
+      {
+        url: 'https://shadow-network.nqbral-games.fr/shadow_network_logo.png',
+        width: 697,
+        height: 850,
+        alt: 'Shadow Network logo',
+      },
+    ],
+    siteName: 'Shadow Network',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://shadow-network.nqbral-games.fr/',
+    languages: {
+      fr: 'https://shadow-network.nqbral-games.fr/',
+    },
+    types: {},
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Home() {
   return (

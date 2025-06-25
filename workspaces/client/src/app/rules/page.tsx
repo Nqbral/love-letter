@@ -17,7 +17,14 @@ import UndercoverAgentImg from '../../../public/undercover_agent_without_value.p
 import LinkButton, { TypeLinkButton } from '../components/buttons/LinkButton';
 import CardDescription from '../components/rules/CardDescription';
 
-export default function Rules() {
+export const metadata = {
+  title: 'Règles du jeu – Shadow Network',
+  description:
+    'Découvrez les règles officielles de Shadow Network, le jeu d’espionnage stratégique. Apprenez à jouer, maîtrisez les cartes et devenez le meilleur agent secret.',
+  robots: 'index, follow',
+};
+
+export default function RulesPage() {
   return (
     <>
       <HeadDescription />
