@@ -1,4 +1,4 @@
-import LobbyClient from '@components/client/LobbyClient';
+import LobbyClient from '@components/clients/LobbyClient';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
