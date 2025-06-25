@@ -22,6 +22,34 @@ export const metadata = {
   description:
     'Découvrez les règles officielles de Shadow Network, le jeu d’espionnage stratégique. Apprenez à jouer, maîtrisez les cartes et devenez le meilleur agent secret.',
   robots: 'index, follow',
+  openGraph: {
+    title: 'Règles du jeu – Shadow Network',
+    description:
+      'Découvrez les règles officielles de Shadow Network, le jeu d’espionnage stratégique. Apprenez à jouer, maîtrisez les cartes et devenez le meilleur agent secret.',
+    url: 'https://shadow-network.nqbral-games.fr/rules',
+    type: 'article',
+    images: [
+      {
+        url: 'https://shadow-network.nqbral-games.fr/shadow_network_logo.png',
+        width: 697,
+        height: 850,
+        alt: 'Shadow Network logo',
+      },
+    ],
+  },
+  keywords: [
+    'Shadow Network',
+    'règles',
+    "jeu d'espionnage",
+    'jeu de société en ligne',
+    'stratégie',
+    'bluff',
+    'rôles cachés',
+    'bluff',
+    'Love Letter',
+    'multijoueur',
+    'Nqbral Games',
+  ],
 };
 
 export default function RulesPage() {

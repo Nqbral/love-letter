@@ -13,8 +13,19 @@ export const metadata: Metadata = {
   title: 'Shadow Network – Jeu d’espionnage en ligne',
   description:
     'Jouez à Shadow Network, le jeu d’espionnage stratégique. Affrontez d’autres agents, élaborez vos stratégies et tentez de transmettre votre message secret au Président. Accessible gratuitement sans installation sur Nqbral Games.',
-  keywords:
-    'Shadow Network, jeu d’espionnage, jeu de société en ligne, stratégie, bluff, rôles cachés, Love Letter, multijoueur, Nqbral Games',
+  keywords: [
+    'Shadow Network',
+    'règles',
+    "jeu d'espionnage",
+    'jeu de société en ligne',
+    'stratégie',
+    'bluff',
+    'rôles cachés',
+    'bluff',
+    'Love Letter',
+    'multijoueur',
+    'Nqbral Games',
+  ],
   openGraph: {
     title: 'Shadow Network – Jeu d’espionnage en ligne',
     description:
