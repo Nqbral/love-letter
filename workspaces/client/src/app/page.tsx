@@ -6,12 +6,13 @@ import LobbyReconnectToast from '@components/toast/LobbyReconnectToast';
 import ShadowNetworkLogo from '@public/shadow_network_logo.png';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Script from 'next/script';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Shadow Network – Jeu d’espionnage en ligne',
   description:
-    'Jouez à Shadow Network, le jeu d’espionnage stratégique. Affrontez d’autres agents, élaborez vos stratégies et tentez de transmettre votre message secret au Président. Accessible gratuitement sans installation sur Nqbral Games.',
+    'Jouez à Shadow Network, le jeu d’espionnage stratégique. Affrontez d’autres agents et tentez de transmettre votre message secret au Président.',
   keywords: [
     'Shadow Network',
     'règles',
@@ -57,6 +58,25 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <Script
+        id="json-ld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Shadow Network',
+            url: 'https://shadow-network.nqbral-games.fr/',
+            alternateName: 'Nqbral Games',
+            inLanguage: 'fr',
+            sameAs: [
+              'https://nqbral-games.fr/',
+              'https://last-hope.nqbral-games.fr/',
+            ],
+          }),
+        }}
+      />
       <Suspense>
         <Navbar />
       </Suspense>
