@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'Nqbral Games',
   ],
   openGraph: {
-    title: "Shadow Network – Jeu de société d'espionnage en ligne",
+    title: 'Shadow Network – Jeu d’espionnage en ligne',
     description:
       'Découvrez Shadow Network, le jeu d’espionnage multijoueur où chaque agent tente de transmettre un message secret au Président. Rejoignez la partie sur Nqbral Games !',
     url: 'https://shadow-network.nqbral-games.fr/',
@@ -41,13 +41,6 @@ export const metadata: Metadata = {
     ],
     siteName: 'Shadow Network',
     type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Shadow Network – Jeu de société d'espionnage en ligne",
-    description:
-      'Découvrez Shadow Network, le jeu d’espionnage multijoueur où chaque agent tente de transmettre un message secret au Président. Rejoignez la partie sur Nqbral Games !',
-    images: ['https://shadow-network.nqbral-games.fr/shadow_network_logo.png'],
   },
   alternates: {
     canonical: 'https://shadow-network.nqbral-games.fr/',
