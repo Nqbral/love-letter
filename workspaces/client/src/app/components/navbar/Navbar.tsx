@@ -34,7 +34,7 @@ export default function Navbar() {
           <Image
             src={ShadowNetworkLogo}
             className="w-12 sm:w-16 md:w-20"
-            alt="shadow-network-logo"
+            alt="shadow-network-logo-navbar"
           />
         </div>
       </Link>
