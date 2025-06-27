@@ -7,8 +7,6 @@ import ShadowNetworkLogo from '@public/shadow_network_logo.png';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
-import LoadingAuth from './layout/LoadingAuth';
-
 export const metadata: Metadata = {
   title: 'Shadow Network – Jeu d’espionnage en ligne',
   description:
@@ -57,7 +55,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <LoadingAuth>
+    <>
       <Navbar />
       <LobbyReconnectToast />
       <div className="flex h-full min-h-screen w-full flex-col items-center justify-center gap-6">
@@ -66,6 +64,10 @@ export default function Home() {
           alt="shadow-network-logo"
           className="w-24 sm:w-32 md:w-48"
         />
+        <h1 className="px-4 text-center text-sm sm:text-lg md:text-xl">
+          Shadow Network - Jeu de cartes stratégique dans l&apos;univers de
+          l&apos;espionnage
+        </h1>
         <div className="flex flex-col gap-1 md:flex-row md:gap-12">
           <LinkButton
             buttonText={'Jouer'}
@@ -81,6 +83,6 @@ export default function Home() {
         <ErrorMessage />
       </div>
       <Footer />
-    </LoadingAuth>
+    </>
   );
 }
