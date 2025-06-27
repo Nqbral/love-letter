@@ -6,6 +6,7 @@ import LobbyReconnectToast from '@components/toast/LobbyReconnectToast';
 import ShadowNetworkLogo from '@public/shadow_network_logo.png';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Shadow Network – Jeu d’espionnage en ligne',
@@ -56,7 +57,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Suspense>
+        <Navbar />
+      </Suspense>
       <LobbyReconnectToast />
       <div className="flex h-full min-h-screen w-full flex-col items-center justify-center gap-6">
         <Image
