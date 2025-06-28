@@ -13,5 +13,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <App>{children}</App>;
+  return (
+    <>
+      <App>{children}</App>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Shadow Network',
+            url: 'https://shadow-network.nqbral-games.fr/',
+            alternateName: 'Nqbral Games',
+            inLanguage: 'fr',
+            sameAs: [
+              'https://nqbral-games.fr/',
+              'https://last-hope.nqbral-games.fr/',
+            ],
+          }),
+        }}
+      />
+    </>
+  );
 }
