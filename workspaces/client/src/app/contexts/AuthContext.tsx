@@ -90,15 +90,24 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
               return;
             }
 
-            setIsLoading(false);
-            setIsLogged(false);
-            setAccessToken(null);
+            if (isLoading || isLogged || accessToken) {
+              setIsLoading(false);
+              setIsLogged(false);
+              setAccessToken(null);
+            }
+
+            return;
           });
       } catch (error) {
         console.error('Erreur lors du refresh token', error);
-        setIsLoading(false);
-        setIsLogged(false);
-        setAccessToken(null);
+
+        if (isLoading || isLogged || accessToken) {
+          setIsLoading(false);
+          setIsLogged(false);
+          setAccessToken(null);
+        }
+
+        return;
       }
 
       try {
