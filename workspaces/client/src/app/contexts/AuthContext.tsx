@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await axios
+        await plainAxios
           .get(process.env.NEXT_PUBLIC_WS_API_AUTH_URL + '/auth/verify_token', {
             withCredentials: true,
           })
