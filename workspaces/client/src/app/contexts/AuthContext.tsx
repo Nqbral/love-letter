@@ -78,48 +78,43 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const authenticate = async () => {
       try {
-        await plainAxios
-          .post(process.env.NEXT_PUBLIC_WS_API_AUTH_URL + '/auth/refresh', {
-            withCredentials: true,
-          })
-          .then((res) => {
-            if (res.status == 201) {
-              setAccessToken(res.data.accessToken);
-              setIsLogged(true);
-              localStorage.setItem('accessToken', res.data.accessToken);
-              return;
-            }
+        const res = await plainAxios.post('/auth/refresh', {
+          withCredentials: true,
+        });
 
-            setIsLoading(false);
-            setIsLogged(false);
-            setAccessToken(null);
-          });
+        if (res.status === 201) {
+          setAccessToken(res.data.accessToken);
+          setIsLogged(true);
+          localStorage.setItem('accessToken', res.data.accessToken);
+
+          // Récupération du profil seulement si refresh réussi
+          try {
+            const profileRes = await axios.get('/user/profile', {
+              withCredentials: true,
+            });
+
+            if (profileRes.status === 200) {
+              setUserName(profileRes.data.username);
+            } else {
+              setUserName(null);
+            }
+          } catch (error) {
+            console.error('Erreur lors de la récupération du profil', error);
+            setUserName(null);
+          }
+        } else {
+          setIsLogged(false);
+          setAccessToken(null);
+        }
       } catch (error) {
         console.error('Erreur lors du refresh token', error);
-        setIsLoading(false);
         setIsLogged(false);
         setAccessToken(null);
-      }
-
-      try {
-        await axios
-          .get(process.env.NEXT_PUBLIC_WS_API_AUTH_URL + '/user/profile', {
-            withCredentials: true,
-          })
-          .then((res) => {
-            if (res.status == 200) {
-              setUserName(res.data.username);
-              return;
-            }
-
-            setUserName(null);
-          });
-      } catch (error) {
-        console.error('Erreur lors de la récupération du profil', error);
         setUserName(null);
+        localStorage.removeItem('accessToken');
+      } finally {
+        setIsLoading(false);
       }
-
-      setIsLoading(false);
     };
 
     authenticate();
