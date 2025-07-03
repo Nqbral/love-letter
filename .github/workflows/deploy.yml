@@ -22,8 +22,17 @@ jobs:
       - name: Cleanup Docker on VPS
         run: |
           ssh -i ~/.ssh/id_ed25519 root@${{ secrets.VPS_HOST }} << 'EOF'
-            echo "Cleanup Docker unused resources..."
-            docker system prune -af --volumes
+          echo "Cleanup Docker unused resources..."
+          echo "Stop containers"
+          docker stop $(docker ps --filter "name=^shadow-network" -q)
+          echo "Remove containers"
+          docker rm $(docker ps -a --filter "name=^shadow-network" -q)
+          echo "Remove images"
+          docker rmi $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^shadow-network")
+          echo "Remove volumes"
+          docker volume rm $(docker volume ls --format "{{.Name}}" | grep "^shadow-network")
+          echo "Remove networks"
+          docker network rm $(docker network ls --format "{{.Name}}" | grep "^shadow-network")
           EOF
 
       - name: Deploy via SSH
