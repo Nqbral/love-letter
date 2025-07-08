@@ -70,7 +70,6 @@ export default function GameManager() {
       data,
     ) => {
       setGameState(data);
-      console.log('game state data');
     };
 
     const onLobbyError: Listener<ServerPayloads[ServerEvents.LobbyError]> = (

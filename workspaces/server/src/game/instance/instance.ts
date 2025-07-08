@@ -930,8 +930,6 @@ export class Instance {
   public dispatchGameState(): void {
     this.lobby.updatedAt = new Date();
 
-    console.log(this.historyEvents);
-
     const payload: ServerPayloads[ServerEvents.GameState] = {
       lobbyId: this.lobby.id,
       stateGame: this.stateGame,
