@@ -74,7 +74,7 @@ export default function GameLobby({ lobbyState }: Props) {
           <RedButton buttonText="Supprimer le lobby" onClick={handleDelete} />
         </div>
       ) : (
-        <div className="flex flex-row items-center gap-3">
+        <div className="flex flex-col items-center gap-3 sm:flex-row">
           <CopyInviteLinkButton />
           <RedButton buttonText="Quitter le lobby" onClick={handleLeave} />
         </div>
